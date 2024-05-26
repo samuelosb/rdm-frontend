@@ -169,25 +169,10 @@ export default function Threads() {
         }
     };
 
-    /*const [threads, setThreads] = useState([]);
-    useEffect(() => {
-        const fetchThreads = async () => {
-            //const response = await fetch("API");
-            //const data = [...jsonData];//await response.json();
-  
-                setThreads(data.features);
-         
-        };
-        fetchThreads();
-    }, []);*/
-
     return (
 
         <Container >
-
-            <h6>Foro de {categoryTitle}</h6><br/>
-
-
+        <br/>
             <Modal transition={true} show={show} onHide={() => setShow(false)}>
                 <Container>
                     <Card className="mx-9">Creando nuevo tema...
@@ -223,7 +208,7 @@ export default function Threads() {
             </Modal>
             <Breadcrumb>
                 <Breadcrumb.Item href="/forum">Categorías</Breadcrumb.Item>
-                <Breadcrumb.Item active href={'/forum/threads?id='}>Foro de</Breadcrumb.Item> 
+                <Breadcrumb.Item active href="#"><strong>Foro de {categoryTitle}</strong></Breadcrumb.Item> 
             </Breadcrumb>
             <Container fluid className="vh-100">
                 <Row className="d-fluid">
@@ -284,7 +269,7 @@ export default function Threads() {
                                 threads.map((thread) => (<>
                                     
                                     <Card.Body key={thread.thread.postId} className="mb-3">
-                                        <Link href={`/forum/viewThread?thread=${thread.thread.postId}&page=1`}>
+                                        <Link href={`/forum/viewThread?thread=${thread.thread.postId}&category=${categoryTitle}`}>
                                             <Row className='align-items-center'>
                                                 <Col xs={6} sm={6} md={6}>
                                                     <div className="text-truncate small-text"

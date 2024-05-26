@@ -134,7 +134,7 @@ export default function Results() {
 
     return (
         <Container className={styles.main}>
-            <h5 className={"mb-4"}>{t("search.results.title")}</h5>
+            <h5 className={"mb-4"}>{t("results.title")}</h5>
             <Container>
                 <Row>
                     {isLoading && data.length === 0 ? (
@@ -169,7 +169,7 @@ export default function Results() {
                     <Row className="justify-content-center">
                         <Col xs="auto">
                             <Button onClick={loadMore} variant="outline-secondary" className="mt-3 mb-3">
-                                {t("search.results.loadMore")}
+                                {t("results.loadMore")}
                             </Button>
                         </Col>
                     </Row>

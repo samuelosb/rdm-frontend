@@ -20,6 +20,7 @@ export default function ViewThread() {
     const target = useRef('');
     const searchParams = useSearchParams()
     const postId = searchParams.get('thread')
+    const category = searchParams.get('category')
     const [mainPost, setmainPost] = useState([]);
     const [comments, setComments] = useState([]);
     const [inputMessage, setMessageContent] = useState('');
@@ -198,12 +199,12 @@ export default function ViewThread() {
                 ) : (<>
                         <Breadcrumb>
                             <Breadcrumb.Item href="/forum">Categorías</Breadcrumb.Item>
-                                <Breadcrumb.Item href={'/forum/threads?id=' + mainPost.post.categoryId}>Foro de</Breadcrumb.Item>
-                                <Breadcrumb.Item active href="#">Thread: {mainPost.post.postTitle}</Breadcrumb.Item>
+                                <Breadcrumb.Item href={`/forum/threads?id=${mainPost.post.categoryId}&category=${category}`}>Foro de {category}</Breadcrumb.Item>
+                                <Breadcrumb.Item active href="#"><strong>{t("forum.messagesOf")} {mainPost.post.postTitle}</strong></Breadcrumb.Item>
                         </Breadcrumb>
                         <Row>
                             <Col>
-                                <h6>{t("forum.messagesOf")}<strong>{mainPost.post.postTitle}</strong></h6>
+                                
                             </Col>
 
                             <Col xs="auto" className="ml-auto">

@@ -250,19 +250,23 @@ export default function ViewRecipe() {
                                     <Card.Img src={data.recipe.image}/>
                                 </Col>
                                 <Col className="text-center">
-                                        <Button variant="light" onClick={() => delFromFavorites(loggedId, recId)}>
+                                        
                                         {onFavorites ? (
+                                            <Button variant="light" onClick={() => delFromFavorites(loggedId, recId)}>
                                             <OverlayTrigger overlay={<Tooltip>{t("viewRecipe.delFav")}</Tooltip>}>
                                                 <Image style={{width: "80%"}} src="heart2.png"
                                                        />
                                             </OverlayTrigger>
+                                            </Button>
                                         ) : (
-                                                    <OverlayTrigger overlay={<Tooltip>{t("viewRecipe.addFav")}</Tooltip>}>
+                                            <Button variant="light" onClick = { () => addToFavorites(loggedId, recId) }>
+                                             <OverlayTrigger overlay={<Tooltip>{t("viewRecipe.addFav")}</Tooltip>}>
                                                 <Image style={{width: "80%"}} src="heart.png"
                                                        onClick={() => addToFavorites(loggedId, recId)}/>
-                                            </OverlayTrigger>
+                                             </OverlayTrigger>
+                                            </Button>
                                         )}
-                                    </Button>
+                                    
                                     <Button variant="light" onClick={() => setShowDays(true)}>
                                         <OverlayTrigger overlay={<Tooltip>{t("viewRecipe.addWeek")}</Tooltip>}>
                                             <Image style={{width: "80%"}} src="calendar.png"/>

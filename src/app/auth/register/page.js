@@ -58,20 +58,19 @@ export default function Register() {
         const form = ev.currentTarget;
         ev.preventDefault();
         ev.stopPropagation();
-        console.log("CHECKVALIDITY()="+form.checkValidity());
+
         let newErrors = { name: '', email: '', password: '', confirmPassword: '', gender: '', terms: '' };
-        if (!form.checkValidity() === false || !passwordsMatch || !acceptedTerms) {
+        if (form.checkValidity() === false || !passwordsMatch || !acceptedTerms) {
             if (!form.nameCtrl.value) newErrors.name = 'El nombre es requerido.';
             if (!form.emailCtrl.value || !/^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/i.test(form.emailCtrl.value)) newErrors.email = 'Por favor, ingrese un email válido.';
             if (!form.passCtrl.value) newErrors.password = 'La contraseña es demasiado débil.';
             if (!passwordsMatch) newErrors.confirmPassword = 'Las contraseñas no coinciden.';
             if (!gender) newErrors.gender = 'Por favor, seleccione un género.';
             if (!acceptedTerms) newErrors.terms = 'Debe aceptar los términos y condiciones.';
-            console.log("HERE1");
+
             setErrors(newErrors);
             setValidated(false);
         } else {
-            console.log("HERE2");
             setValidated(true);
             await makeRegister(name, email, pass, gender);
             setErrors({ name: '', email: '', password: '', confirmPassword: '', gender: '', terms: '' });
