@@ -1,0 +1,13 @@
+[
+    {"categoryId" : 1, "categoryTitle" : "General","NumberOfThreads" : 10, "NumberOfComments": 15
+    },
+    {"categoryId": 2, "categoryTitle": "Vinos", "NumberOfThreads": 15,
+        "NumberOfComments": 20 
+    },
+    {"categoryId": 3, "categoryTitle": "Trucos", "NumberOfThreads": 7,
+        "NumberOfComments": 45
+    },
+    {"categoryId": 4,  "categoryTitle": "Equipamiento", "NumberOfThreads": 36,
+        "NumberOfComments": 5
+    }
+]

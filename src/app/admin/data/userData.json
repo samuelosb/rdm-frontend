@@ -1,0 +1,38 @@
+[
+    {   
+        "userId" : 1,
+        "username" : "John Doe",
+        "creationAccountDate": "2024-04-25T18:57:57.341Z",
+        "gender": "Masculino",
+        "role": "basic",
+        "numberOfPosts": 16,
+        "numberOfComments": 17
+    },
+    {
+        "userId": 2,
+        "username": "Michel Balavoine",
+        "creationAccountDate": "2024-04-25T19:57:57.341Z",
+        "gender": "Femenino",
+        "role": "admin",
+        "numberOfPosts" : 17,
+        "numberOfComments": 35
+    },
+    {   
+        "userId": 3,
+        "username": "Icarus Debelle",
+        "creationAccountDate": "2023-05-26T20:57:57.341Z",
+        "gender": "No binario",
+        "role": "admin",
+        "numberOfPosts": 24,
+        "numberOfComments": 2
+    },
+    {
+        "userId": 4,
+        "username": "Icarus Debelle",
+        "creationAccountDate": "2023-05-26T20:57:57.341Z",
+        "role": "basic",
+        "gender": "No binario",
+        "numberOfPosts": 24,
+        "numberOfComments": 2
+    }
+]

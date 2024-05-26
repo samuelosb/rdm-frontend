@@ -1,0 +1,21 @@
+[
+    {
+        "commentId": 1,
+        "postId": 1,
+        "authorId": 2,
+        "timePublication": "2024-04-25T18:57:57.341+00:00"
+        
+    },
+    {
+        "commentId": 2,
+        "postId": 2,
+        "authorId": 1,
+        "timePublication": "2024-04-25T19:57:57.341+00:00"
+    },
+    {
+        "commentId": 3,
+        "postId": 3,
+        "authorId": 4,
+        "timePublication": "2023-05-26T20:57:57.341+00:00"
+    }
+]

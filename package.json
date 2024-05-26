@@ -1,0 +1,53 @@
+{
+  "name": "recetas-front",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "comments": {
+    "dependencies-info": "Those are the purpose of the dependencies listed bellow:",
+    "1": "@fortawesome libraries -> For some icons and fonts used in the UI.",
+    "2": "react-bootstrap, react-toastify, bootstrap, react, next -> For providing UI elements and funcionality.",
+    "3": "react-world-flags, react-chartjs-2, recharts, react-stars -> For graphic elements used in the UI, like the flags,",
+    "3b": "the charts used in the admin panel, and the stars of the recipe ratings.",
+    "4": "moment, date-fns -> For dates formatting and transformation.",
+    "5": "cookies-next, jsonwebtoken -> To manage, read and save browser cookies, and jwt for the user sessions.",
+    "6": "i18next -> To manage languages and translations available in the application.",
+    "7": "axios, dotenv -> To make some request to the backend, and support to .env file of enviromn. variables.",
+    "end": "more detailed info on the project documentation (docs folder)"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "axios": "^1.6.8",
+    "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.2",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "cookies-next": "^4.1.1",
+    "date-fns": "^3.6.0",
+    "dotenv": "^16.0.3",
+    "i18next": "^23.11.2",
+    "jsonwebtoken": "^9.0.2",
+    "moment": "^2.30.1",
+    "next": "14.1.4",
+    "next-auth": "^5.0.0-beta.17",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.2",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.3.1",
+    "react-dotenv": "^0.1.3", 
+    "react-i18next": "^14.1.0",
+    "react-stars": "^2.2.5",
+    "react-toastify": "^10.0.5",
+    "react-world-flags": "^1.6.0",
+    "recharts": "^2.12.6"
+  },
+  "devDependencies": {
+    "cypress": "^13.8.1"
+  }
+}

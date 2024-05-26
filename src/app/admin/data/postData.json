@@ -1,0 +1,8 @@
+[
+    { "postId" : 1, "categoryId": 1, "authorId": 1, "postTitle": "test1","timePublication": "2024-04-25T18:57:57.341+00:00", "numberOfComments" : 15
+    },
+    { "postId": 2,"categoryId": 1,"authorId": 1, "postTitle": "test2","timePublication": "2024-04-25T19:57:57.341+00:00", "numberOfComments": 45
+    },
+    { "postId": 3,"categoryId": 1,"authorId": 1, "postTitle" :"test3", "timePublication": "2023-05-26T20:57:57.341+00:00", "numberOfComments": 3
+    }   
+]

@@ -1,0 +1,189 @@
+/* Main container styles */
+.main-container {
+    width: 80%; /* Restricts the container width to 80% of the viewport */
+    margin-left: auto; /* Centers the container horizontally */
+    margin-right: auto;
+    padding-top: 20px; /* Adds vertical space at the top */
+    padding-bottom: 20px; /* Adds vertical space at the bottom */
+}
+
+/* Styles for the vertically scrollable container */
+.vertical-scrollable-container {
+    height: 500px; /* Sets a fixed height for the container */
+    overflow-y: auto; /* Allows vertical scrolling */
+}
+
+/* Styles for the horizontally scrollable row */
+.scrollable-row {
+    display: flex; /* Establishes a flex container for direct children */
+    overflow-x: auto; /* Allows horizontal scrolling */
+    padding: 1rem 0; /* Adds padding to the top and bottom of the row */
+    gap: 1rem; /* Sets space between the flex items/cards */
+}
+
+/* Hides the scrollbar for Webkit browsers */
+.scrollable-row::-webkit-scrollbar {
+    display: none;
+}
+
+/* Column layout for cards */
+.scrollable-row .col {
+    flex: 0 0 auto; /* Prevents the column from growing or shrinking */
+    display: flex; /* Enables flex layout for contents */
+    height: 100%; /* Ensures each column is the same height */
+}
+
+/* Base card styles */
+.card {
+    border: none; /* Removes border */
+    border-radius: 10px; /* Rounds the corners of the card */
+    overflow: hidden; /* Clips the content to the border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Applies a shadow to the card */
+    display: flex;
+    flex-direction: column; /* Stacks children elements vertically */
+    height: 100%; /* Stretches the card to fill the column height */
+}
+
+/* Image styles at the top of the card */
+.card-img-top {
+    height: 200px; /* Fixes the image height */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+}
+
+/* Card body styling */
+.card-body {
+    padding: 1rem; /* Adds padding around the card content */
+    background-color: #f8f9fa; /* Sets the background color of the card */
+    flex-grow: 1; /* Allows the card body to fill the available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spaces out the card title and details */
+    overflow: hidden; /* Ensures text doesn't overflow */
+}
+
+/* Card title styling */
+.card-title {
+    font-size: 1.2rem; /* Sets the font size of the title */
+    margin-bottom: 0.5rem; /* Adds spacing below the title */
+    font-weight: bold; /* Makes the title text bold */
+}
+
+/* Card text (description) styling */
+.card-text {
+    font-size: 0.9rem; /* Sets the size of the card text */
+    color: #666; /* Sets the text color */
+    margin-bottom: 0.5rem; /* Adds spacing below the text */
+    overflow: hidden; /* Hides overflow text */
+    text-overflow: ellipsis; /* Adds ellipsis to overflow text */
+    display: -webkit-box; /* Ensures the box model is applied for ellipsis */
+    -webkit-line-clamp: 3; /* Limits the text to 3 lines */
+    -webkit-box-orient: vertical; /* Ensures the text is vertically oriented */
+}
+
+/* Styles for the recipe details container */
+.recipe-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distributes space between items */
+    font-size: 0.8rem; /* Sets the font size for details */
+}
+
+/* Difficulty tag styling */
+.right-tag {
+    background-color: #ddd; /* Sets tag background color */
+    border-radius: 15px; /* Rounds the corners of the tag */
+    padding: 2px 8px; /* Adds padding inside the tag */
+    margin-left: auto; /* Pushes the element to the right */
+}
+
+/* Rating container styles */
+.rating {
+    display: flex;
+    align-items: center; /* Vertically centers the star rating */
+}
+
+/* Cook time display styles */
+.middle-tag {
+    display: flex;
+    align-items: center; /* Vertically centers the cook time */
+    justify-content: center; /* Horizontally centers the cook time */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Category card square shape */
+.category-card {
+    position: relative;
+    width: 100%; /* Full width of the container */
+    height: auto;
+    padding-top: 100%; /* Sets height equal to the width for a square shape */
+    margin-bottom: 1rem; /* Space between stacked cards */
+}
+
+/* Positioning the image and overlay for category cards */
+.category-card .card-img-top, .category-card .category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Styles for the category overlay that contains logo and name */
+.category-card .category-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adjustments for logo container inside the overlay */
+.category-overlay .category-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers logo vertically */
+}
+
+/* Adjustments for logo size and margins */
+.category-overlay .category-logo {
+    width: 30%;
+    max-width: 80px;
+    height: auto;
+}
+
+/* Styles for the category name positioned below the logo */
+.category-overlay .category-name {
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); /* Shadow for text legibility */
+    font-size: 0.9rem;
+    margin-top: 10px; /* Space between logo and name */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners for the background */
+    white-space: nowrap; /* Prevents the text from wrapping to a new line */
+    overflow: hidden; /* Hides overflow text */
+    text-overflow: fade; /* Adds ellipsis to overflow text */
+    max-width: 80%; /* Limits the width of the name to prevent overflow */
+}
+
+.post-details {
+    display: flex;
+    justify-content: space-between; /* Distributes space between date and comments */
+    font-size: 0.8rem; /* Sets the font size for details */
+}
+
+.post-card-text {
+    font-size: 0.8rem; /* Adjust the size as needed */
+    position: relative;
+    max-height: 8rem; /* Adjust this value based on your desired text height */
+    overflow: hidden;
+}
+
+.post-card-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2rem; /* Adjust this value based on your desired fade-out height */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}

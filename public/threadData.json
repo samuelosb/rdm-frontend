@@ -1,0 +1,126 @@
+{
+  "threadId": "abc123",
+  "threadTitle": "Recetas del Chef: Especialidades de la Cocina Internacional",
+  "messages": [
+    {
+      "messageId": "msg001",
+      "author": "Chef Juan",
+      "messageText": "¡Bienvenidos a la serie 'Recetas del Chef'! Hoy les traigo una deliciosa receta de Risotto de Champiñones. Es un plato italiano cremoso y reconfortante que seguramente te encantará. ¡A cocinar!",
+      "timestamp": "2024-04-16T12:00:00Z"
+    },
+    {
+      "messageId": "msg002",
+      "author": "Cocinero María",
+      "messageText": "¡Hola a todos! ¿Alguien está interesado en aprender a hacer Sushi en casa? Es más fácil de lo que piensas y muy divertido. ¡Déjenme saber si quieren la receta!",
+      "timestamp": "2024-04-16T13:30:00Z"
+    },
+    {
+      "messageId": "msg003",
+      "author": "Chef Roberto",
+      "messageText": "¡Buenas tardes! Hoy compartiré mi receta secreta de Pollo al Curry. Es una combinación perfecta de sabores exóticos y especias aromáticas. ¡Espero que disfruten cocinándola tanto como yo!",
+      "timestamp": "2024-04-16T15:45:00Z"
+    },
+    {
+      "messageId": "msg004",
+      "author": "Chef Ana",
+      "messageText": "¡Hola a todos! Esta semana estoy preparando un delicioso postre de Tarta de Manzana. Es fácil de hacer y siempre es un éxito en mi familia. ¡Les compartiré la receta completa pronto!",
+      "timestamp": "2024-04-17T10:00:00Z"
+    },
+    {
+      "messageId": "msg005",
+      "author": "Chef Miguel",
+      "messageText": "¡Buen día, amigos de la cocina! Hoy quiero hablarles sobre cómo hacer un auténtico Guacamole Mexicano. Es perfecto como aperitivo o acompañamiento para tus platos favoritos. ¡Anímense a probarlo!",
+      "timestamp": "2024-04-17T12:20:00Z"
+    },
+    {
+      "messageId": "msg006",
+      "author": "Cocinera Sofia",
+      "messageText": "¡Hola a todos! Estoy emocionada de compartir mi receta de Pastel de Zanahoria con ustedes. Es esponjoso, lleno de sabor y siempre es un éxito en mi casa. ¡Pronto les mostraré cómo hacerlo paso a paso!",
+      "timestamp": "2024-04-17T14:50:00Z"
+    },
+    {
+      "messageId": "msg007",
+      "author": "Chef David",
+      "messageText": "¡Saludos, amantes de la cocina! Hoy les traigo una receta clásica de Lasagna Bolognesa. Es una deliciosa combinación de pasta, salsa de carne y queso derretido. ¡A cocinar!",
+      "timestamp": "2024-04-17T16:30:00Z"
+    },
+    {
+      "messageId": "msg008",
+      "author": "Chef Laura",
+      "messageText": "¡Hola a todos! ¿Alguien quiere aprender a hacer Pan Casero? Es una experiencia gratificante y el aroma que llena la casa mientras se hornea es increíble. ¡Les enseñaré cómo hacerlo desde cero!",
+      "timestamp": "2024-04-18T09:15:00Z"
+    },
+    {
+      "messageId": "msg009",
+      "author": "Cocinera Gabriela",
+      "messageText": "¡Buenos días, amigos de la cocina! Hoy les compartiré mi receta de Gazpacho Andaluz. Es una sopa fría refrescante perfecta para el verano. ¡Espero que les guste tanto como a mí!",
+      "timestamp": "2024-04-18T11:45:00Z"
+    },
+    {
+      "messageId": "msg010",
+      "author": "Chef Daniel",
+      "messageText": "¡Hola a todos! Esta semana estoy experimentando con platos vegetarianos y quiero compartir mi receta de Ensalada César Vegana. Es una versión saludable y deliciosa de un clásico. ¡Pronto les mostraré cómo hacerlo!",
+      "timestamp": "2024-04-18T14:00:00Z"
+    },
+    {
+      "messageId": "msg011",
+      "author": "Chef María",
+      "messageText": "¡Buenas tardes, cocineros! Hoy les enseñaré a preparar una Paella Valenciana auténtica. Es un plato español tradicional lleno de sabor y color. ¡Prepárense para transportarse a España con cada bocado!",
+      "timestamp": "2024-04-18T16:20:00Z"
+    },
+    {
+      "messageId": "msg012",
+      "author": "Chef Carlos",
+      "messageText": "¡Hola a todos! ¿Alguien está interesado en aprender a hacer Panqueques? Son fáciles de hacer y siempre son un éxito en el desayuno o brunch. ¡Les compartiré mi receta secreta!",
+      "timestamp": "2024-04-19T10:30:00Z"
+    },
+    {
+      "messageId": "msg013",
+      "author": "Chef Ana",
+      "messageText": "¡Buen día, amantes de la cocina! Esta semana estoy experimentando con postres y quiero compartir mi receta de Cheesecake de Fresa. Es cremoso, indulgente y simplemente delicioso. ¡Espero que les guste!",
+      "timestamp": "2024-04-19T12:45:00Z"
+    },
+    {
+      "messageId": "msg014",
+      "author": "Cocinera Sofia",
+      "messageText": "¡Hola a todos! Hoy les traigo una receta reconfortante de Sopa de Pollo con Fideos. Es perfecta para los días fríos o cuando necesitas un poco de consuelo. ¡Espero que la disfruten tanto como yo!",
+      "timestamp": "2024-04-19T15:00:00Z"
+    },
+    {
+      "messageId": "msg015",
+      "author": "Chef Miguel",
+      "messageText": "¡Saludos, amigos de la cocina! Les compartiré mi receta de Chili con Carne. Es picante, sabroso y perfecto para una noche acogedora en casa. ¡Prepárense para una explosión de sabor!",
+      "timestamp": "2024-04-19T17:10:00Z"
+    },
+    {
+      "messageId": "msg016",
+      "author": "Chef Laura",
+      "messageText": "¡Hola a todos! ¿Alguien quiere aprender a hacer Tacos Mexicanos caseros? Son fáciles de hacer y puedes personalizarlos con tus ingredientes favoritos. ¡Les mostraré cómo hacerlos desde cero!",
+      "timestamp": "2024-04-20T09:20:00Z"
+    },
+    {
+      "messageId": "msg017",
+      "author": "Chef David",
+      "messageText": "¡Buenas tardes, cocineros! Hoy les enseñaré a preparar un clásico italiano: Tiramisú. Es un postre elegante y delicioso que seguramente impresionará a tus invitados. ¡Prepárense para chuparse los dedos!",
+      "timestamp": "2024-04-20T11:30:00Z"
+    },
+    {
+      "messageId": "msg018",
+      "author": "Cocinera Gabriela",
+      "messageText": "¡Buenos días a todos! Esta semana estoy compartiendo mi receta de Empanadas Argentinas. Son perfectas como aperitivo o plato principal y puedes llenarlas con una variedad de rellenos deliciosos. ¡Espero que les gusten!",
+      "timestamp": "2024-04-20T13:40:00Z"
+    },
+    {
+      "messageId": "msg019",
+      "author": "Chef Daniel",
+      "messageText": "¡Hola a todos! ¿Alguien quiere aprender a hacer Pasta Casera? Es una experiencia divertida y el resultado es incomparablemente delicioso. ¡Les mostraré cómo hacerla desde cero!",
+      "timestamp": "2024-04-20T16:00:00Z"
+    },
+    {
+      "messageId": "msg020",
+      "author": "Chef María",
+      "messageText": "¡Buenas tardes, amantes de la cocina! Hoy les traigo una receta de Filete de Salmón al Horno con Salsa de Limón y Eneldo. Es saludable, fácil de hacer y absolutamente delicioso. ¡Prepárense para una experiencia culinaria increíble!",
+      "timestamp": "2024-04-20T18:20:00Z"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+.clickable-brand {
+   
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    color: inherit;
+    background-color: #f8f9fa;
+    transition: width 0.3s,    height 0.3s; 
+}
+
+.brand-text {
+    transition: font-size 0.3s;
+}
+
+@media (max-width: 576px) {
+    .logo-img {
+        width: 50px;
+        height: 45px;
+    }
+
+    .brand-text {
+        font-size: 16px;
+    }
+}
+
+.search-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-form, .search-nav {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.form-control {
+    border: 1px solid #ccc;
+    padding-right: 45px;
+    border-radius: 20px;
+    width: 100%;
+    color: #333;
+}
+
+.search-btn {
+    position: absolute;
+    right: 3%;
+    top: 46%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.icons-container {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-icon, .search-btn {
+    cursor: pointer;
+}
+
+.search-btn:focus {
+    outline: none;
+}
+
+.search-btn:hover .search-icon {
+    opacity: 0.8;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+
+.nav {
+    height: 100%; /* Removed redundant comment */
+}
+
+.popover {
+    max-width: none;
+}

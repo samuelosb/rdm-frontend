@@ -1,0 +1,329 @@
+{
+  "upperMenu": {
+    "forum": "Foro",
+    "search-placeholder": "Buscar...",
+    "favs": "Favoritos",
+    "weekPlan": "Menú Semana",
+    "login": "Iniciar Sesión",
+    "userConfig": "Usuario",
+    "admin": "Admin",
+    "logout": "Cerrar Sesión",
+    "register": "Registrar Usuario"
+  },
+  "footer": {
+    "rights": "© 2024 RecetasDelMundo.com. Sin derechos reservados.",
+    "legal": "Legal",
+    "about": "Quiénes Somos"
+  },
+  "forum": {
+    "title": "Foro",
+    "header": "Bienvenido al foro de la web. Si deseas participar, crea una cuenta de usuario.",
+    "srchIn": "Buscar en esta categoría ...",
+    "messagesOf": "Mensajes del tema: ",
+    "reply": "+ Responder",
+    "close": "Cerrar",
+    "send": "Enviar",
+    "replyingTo": "Respondiendo al tema. ",
+    "message": "Mensaje: ",
+    "titles": "Título",
+    "date": "Fecha",
+    "author": "Autor",
+    "genTitle": "Consultas Generales",
+    "newThread": "+ Nuevo Tema",
+    "genSubtitle": "Foro de dudas sobre preparación de recetas e ingredientes",
+    "hckTitle": "Trucos de cocina",
+    "hckSubtitle": "Foro para compartir consejos de cocina que hacen la elaboración de los platos más sencilla",
+    "toolsTitle": "Utensilios y equipamiento",
+    "toolsSubtitle": "Foro de dudas sobre equipamiento y herramientas de cocina.",
+    "winesTitle": "Vinos y maridaje",
+    "winesSubtitle": "Consejos de maridaje y recomendaciones sobre vinos."
+  },
+  "search": {
+    "title": "Realiza una búsqueda extendida aquí",
+    "placeholder": "Búsqueda avanzada...",
+    "cuisineTypes": {
+      "placeholder": "Tipo de cocina",
+      "American": "Americana",
+      "Asian": "Asiática",
+      "British": "Británica",
+      "Caribbean": "Caribeña",
+      "CentralEurope": "Europa Central",
+      "Chinese": "China",
+      "EasternEurope": "Europa del Este",
+      "French": "Francesa",
+      "Indian": "India",
+      "Italian": "Italiana",
+      "Japanese": "Japonesa",
+      "Kosher": "Kosher",
+      "Mediterranean": "Mediterránea",
+      "Mexican": "Mexicana",
+      "MiddleEastern": "Oriente Medio",
+      "Nordic": "Nórdica",
+      "SouthAmerican": "Sudamericana",
+      "SouthEastAsian": "Sudeste Asiático"
+    },
+    "dishTypes": {
+      "placeholder": "Tipo de plato",
+      "BiscuitsAndCookies": "Galletas y bizcochos",
+      "Bread": "Pan",
+      "Cereals": "Cereales",
+      "CondimentsAndSauces": "Condimentos y salsas",
+      "Desserts": "Postres",
+      "Drinks": "Bebidas",
+      "MainCourse": "Plato principal",
+      "Pancake": "Panqueque",
+      "Preps": "Preparaciones",
+      "Preserve": "Conserva",
+      "Salad": "Ensalada",
+      "Sandwiches": "Sándwiches",
+      "SideDish": "Acompañamiento",
+      "Soup": "Sopa",
+      "Starter": "Entrada",
+      "Sweets": "Dulces"
+    },
+    "mealTypes": {
+      "placeholder": "Tipo de comida",
+      "Breakfast": "Desayuno",
+      "Dinner": "Cena",
+      "Lunch": "Almuerzo",
+      "Snack": "Merienda",
+      "Teatime": "Hora del té"
+    },
+    "healthOptions": {
+      "placeholder": "Salud",
+      "alcoholCocktail": "Cóctel con alcohol",
+      "alcoholFree": "Sin alcohol",
+      "celeryFree": "Sin apio",
+      "crustaceanFree": "Sin crustáceos",
+      "dairyFree": "Sin lácteos",
+      "DASH": "DASH",
+      "eggFree": "Sin huevo",
+      "fishFree": "Sin pescado",
+      "fodmapFree": "Sin FODMAP",
+      "glutenFree": "Sin gluten",
+      "immunoSupportive": "Inmuno-supresor",
+      "ketoFriendly": "Amigable con keto",
+      "kidneyFriendly": "Amigable con el riñón",
+      "kosher": "Kosher",
+      "lowFatAbs": "Bajo en grasas",
+      "lowPotassium": "Bajo en potasio",
+      "lowSugar": "Bajo en azúcar",
+      "lupineFree": "Sin altramuces",
+      "Mediterranean": "Mediterránea",
+      "molluskFree": "Sin moluscos",
+      "mustardFree": "Sin mostaza",
+      "noOilAdded": "Sin aceite añadido",
+      "paleo": "Paleo",
+      "peanutFree": "Sin cacahuetes",
+      "pescatarian": "Pescetariano",
+      "porkFree": "Sin cerdo",
+      "redMeatFree": "Sin carne roja",
+      "sesameFree": "Sin sésamo",
+      "shellfishFree": "Sin mariscos",
+      "soyFree": "Sin soja",
+      "sugarConscious": "Consciente del azúcar",
+      "sulfiteFree": "Sin sulfitos",
+      "treeNutFree": "Sin frutos secos",
+      "vegan": "Vegano",
+      "vegetarian": "Vegetariano",
+      "wheatFree": "Sin trigo"
+    },
+    "diets": {
+      "placeholder": "Dieta",
+      "title": "Dieta",
+      "vegetarian": "Vegetariana",
+      "vegan": "Vegana",
+      "paleo": "Paleo",
+      "highFiber": "Alta en fibra",
+      "highProtein": "Alta en proteínas",
+      "lowCarb": "Baja en carbohidratos",
+      "lowFat": "Baja en grasas",
+      "lowSodium": "Baja en sodio",
+      "lowSugar": "Baja en azúcar",
+      "noAlcohol": "Sin alcohol",
+      "balanced": "Equilibrada",
+      "immunity": "Inmunidad"
+    },
+    "ingredients": {
+      "placeholder": "Dificultad",
+      "0-3": "fácil",
+      "4-7": "medio",
+      "8+": "difícil"
+    },
+    "calories": {
+      "placeholder": "Calorías"
+    },
+    "time": {
+      "placeholder": "Tiempo"
+    },
+    "results": {
+      "title": "Resultados",
+      "loadMore": "Cargar más",
+      "noResultsFound": "No se encontraron resultados",
+      "recipeAdded": "Receta añadida a tu menú semanal"
+    },
+    "allergies": {
+      "placeholder": "Alergias",
+      "title": "Alergias",
+      "gluten": "Gluten",
+      "dairy": "Lácteos",
+      "eggs": "Huevos",
+      "soy": "Soja",
+      "wheat": "Trigo",
+      "fish": "Pescado",
+      "shellfish": "Mariscos",
+      "nuts": "Frutos secos",
+      "peanuts": "Cacahuetes"
+    },
+    "difficulties": {
+      "placeholder": "Dificultad",
+      "title": "Dificultad",
+      "easy": "Fácil",
+      "medium": "Media",
+      "hard": "Difícil"
+    }
+  },
+  "results": {
+    "title": "Resultados",
+    "loading": "Cargando...",
+    "more": "Más",
+    "end": "Fin.",
+    "addToMenu": "Agregar al menú de...",
+    "noResultsFound": "No se han encontrado resultados",
+    "loadMore": "Cargar más"
+  },
+  "home": {
+    "topR": "Top recetas del mundo",
+    "secT": "Para todos los gustos",
+    "Fácil": "Fácil",
+    "Intermedia": "intermedio",
+    "Moderado": "Moderado",
+    "Avanzada": "Advanzado",
+    "easy": "Fácil",
+    "medium": "Medio",
+    "hard": "Difícil",
+    "forumposts": "Los últimos mensajes del foro",
+    "mostCommentedPosts": "Entradas con mayor participación de la comunidad",
+    "randomR": "Descubra nuevos sabores con recetas creativas \uD83D\uDD25"
+  },
+  "favorites": {
+    "title": "Lista de recetas favoritas",
+    "added": "Añadido",
+    "empty": "Tu lista de favoritos está vacía"
+  },
+  "register": {
+    "title": "Registro de nueva cuenta de usuario",
+    "name": "Nombre",
+    "email": "Email",
+    "pass": "Contraseña",
+    "repeatPass": "Repita Contraseña",
+    "gender": "Género",
+    "male": "Masculino",
+    "female": "Femenino",
+    "nonBinary": "No Binario",
+    "selectGender": "Por favor, seleccione su género.",
+    "terms": "Acepto los términos y condiciones de uso",
+    "acceptTerms": "Debes aceptar los términos para crear una cuenta",
+    "back": "Volver",
+    "submit": "Registrar",
+    "weakPass": "Contraseña demasiado débil."
+  },
+  "resetPassword": {
+    "title": "Restablecer contraseña",
+    "email": "Email",
+    "back": "Volver",
+    "submit": "Restablecer contraseña",
+    "successMessage": "Se ha enviado un correo para restablecer su contraseña. Por favor, revise su email."
+  },
+  "login": {
+    "title": "Iniciar sesión en su cuenta",
+    "pass": "Contraseña",
+    "forget": "¿Olvidaste tu contraseña?",
+    "back": " Volver",
+    "submit": "Iniciar sesión",
+    "banned": "Cuenta Bloqueada!"
+  },
+  "admin": {
+    "delPost": "Post eliminado",
+    "delComm": "Comentario eliminado"
+  },
+  "userConfig": {
+    "title": "Configuración de usuario",
+    "personalDataHeader": "Datos personales",
+    "personalDataDescription": "Cambiar datos de la cuenta, como el nombre, email",
+    "changePasswordHeader": "Cambio de contraseña",
+    "changePasswordDescription": "Cambia la contraseña de acceso a la cuenta.",
+    "banned": "Usuario bloqueado: "
+  },
+  "changePassword": {
+    "title": "Cambio de contraseña",
+    "currentPass": "Contraseña actual",
+    "currentPassPlaceholder": "Ingrese contraseña actual",
+    "newPass": "Nueva Contraseña",
+    "newPassPlaceholder": "Ingrese nueva contraseña",
+    "confirmNewPass": "Repita Nueva Contraseña",
+    "back": "Volver",
+    "submit": "Cambiar",
+    "weakPass": "Contraseña demasiado débil."
+  },
+  "changeUserData": {
+    "title": "Configuración de usuario",
+    "name": "Nombre",
+    "email": "Email",
+    "back": "Volver",
+    "save": "Guardar"
+  },
+  "week": {
+    "title": "Planificacion de recetas de la semana.",
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miércoles",
+    "thursday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sábado",
+    "sunday": "Domingo"
+  },
+  "about": {
+    "title": "Quiénes Somos",
+    "intro": {
+      "heading": "Quiénes somos",
+      "description": "\"Recetas del Mundo\" es algo más que un sitio web de recetas. Es una plataforma que pretende explorar y celebrar la diversidad culinaria del mundo."
+    },
+    "mission": {
+      "part1": "La web pretende unir a la gente a través de la comida y romper las barreras culturales y geográficas. Cada receta de nuestra web es un viaje culinario que invita a nuestros usuarios a descubrir nuevas culturas y sabores.",
+      "part2": "Nuestro objetivo es crear una comunidad global de amantes de la comida, donde cada plato cuente una historia y cada historia una a la gente."
+    },
+    "team": {
+      "description": "Somos un pequeño equipo de Zaragoza, los creadores detrás de la magia de \"Recetas del Mundo\". Nuestras raíces se extienden por todo el globo. Tejemos un tapiz de sabores en un sitio web. A través de la cocina, construimos puentes. Cada receta es un capítulo de nuestra historia compartida."
+    },
+    "teamLabel": "El equipo de Recetas del Mundo"
+  },
+  "legal": {
+    "title": "Información Legal",
+    "intro": {
+      "heading": "Información Legal",
+      "description": "Conozca las políticas que rigen nuestro compromiso con la privacidad y el manejo responsable de datos."
+    },
+    "privacyPolicy": {
+      "heading": "Política de privacidad",
+      "description": "\"Recetas del Mundo\" respeta su privacidad. Recopilamos solo la información necesaria para mejorar su experiencia en nuestro sitio web. No compartimos sus datos con terceros sin su consentimiento explícito. Nuestra política de privacidad está diseñada para proteger su información. Le recomendamos que lea nuestra política de privacidad para entender cómo usamos y protegemos sus datos. Su confianza es nuestra prioridad."
+    },
+    "cookiePolicy": {
+      "heading": "Política de cookies",
+      "description": "\"Recetas del Mundo\" hace uso de cookies para personalizar y enriquecer su navegación. Estas pequeñas unidades de datos nos permiten recordar sus preferencias y adaptar nuestras páginas a sus gustos. No recogemos datos personales a través de las cookies sin su permiso explícito. Usted tiene el control total y puede cambiar sus preferencias de cookies en cualquier momento. Para más información, por favor, consulte nuestra política de cookies."
+    }
+  },
+  "viewRecipe": {
+    "giveYourRating": "Valora esta receta",
+    "communityRating": "Valoración comunitaria",
+    "nutrition": "Nutrición",
+    "calories": "calorías",
+    "portion": "porción",
+    "portions": "porciones",
+    "goToInstructions": "Ver Instrucciones",
+    "at": "en",
+    "delFav": "Eliminar de Favoritos",
+    "addFav": "Agregar a Favoritos",
+    "addWeek": "Agregar al Menú"
+  }
+}

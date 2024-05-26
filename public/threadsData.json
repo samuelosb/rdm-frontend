@@ -1,0 +1,44 @@
+﻿[
+  {
+    "title": "Por que los dulces navideños sólo se venden en NAVIDAD",
+    "id": 1,
+    "author": "Usuario1",
+    "replies": 3,
+    "date": "2022-04-05T13:32:18.647Z"
+  },
+  {
+    "id": 2,
+    "title": "Masa de pizza: cantidades, fermentación y coccion.",
+    "author": "Usuario2",
+    "replies": 5,
+    "date": "2023-08-21T05:17:09.219Z"
+  },
+  {
+    "id": 3,
+    "title": "Tercer tema",
+    "author": "Usuario3",
+    "replies": 2,
+    "date": "2021-11-29T20:48:36.532Z"
+  },
+  {
+    "id": 4,
+    "title": "Cuarto tema",
+    "author": "Usuario4",
+    "replies": 8,
+    "date": "2022-09-14T08:59:03.861Z"
+  },
+  {
+    "id": 5,
+    "title": "Quinto tema",
+    "author": "Usuario5",
+    "replies": 1,
+    "date": "2023-03-07T16:23:45.147Z"
+  },
+  {
+    "id": 6,
+    "title": "Masa de pizza: cantidades, fermentación y coccion.",
+    "author": "Usuario2",
+    "replies": 5,
+    "date": "2022-07-18T10:41:28.973Z"
+  }
+]

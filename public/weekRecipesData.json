@@ -1,0 +1,116 @@
+{
+  "weekRecipes": {
+    "Lunes": [
+      {
+        "id": "1",
+        "title": "Pasta a la Carbonara",
+        "shortDesc": "Una deliciosa pasta italiana con una salsa cremosa de huevo, queso parmesano, panceta y pimienta negra.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-15"
+      },
+      {
+        "id": "2",
+        "title": "Ensalada César",
+        "shortDesc": "Una ensalada clásica con lechuga romana, crutones, queso parmesano, pollo a la parrilla y aderezo César.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-15"
+      }
+    ],
+    "Martes": [
+      {
+        "id": "3",
+        "title": "Pollo al Curry",
+        "shortDesc": "Un plato de pollo sabroso y aromático con una salsa de curry cremosa y especiada.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-16"
+      },
+      {
+        "id": "4",
+        "title": "Tacos Mexicanos",
+        "shortDesc": "Tortillas de maíz rellenas de carne sazonada, lechuga, tomate, queso y salsa.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-16"
+      }
+    ],
+    "Miércoles": [
+      {
+        "id": "5",
+        "title": "Salmón al Horno",
+        "shortDesc": "Filetes de salmón horneados con una marinada de limón, eneldo, ajo y aceite de oliva.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-17"
+      }      
+    ],
+    "Jueves": [
+      {
+        "id": "7",
+        "title": "Arroz con Pollo",
+        "shortDesc": "Un plato clásico latinoamericano con arroz, pollo, verduras y especias.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-18"
+      },
+      {
+        "id": "6",
+        "title": "Pizza Casera",
+        "shortDesc": "Una pizza casera con masa crujiente, salsa de tomate, mozzarella y tus ingredientes favoritos.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-17"
+      },
+      {
+        "id": "8",
+        "title": "Pastel de Carne",
+        "shortDesc": "Un pastel de carne picada de res y cerdo con una capa de puré de patatas gratinado al horno.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-18"
+      }
+    ],
+    "Viernes": [
+      {
+        "id": "9",
+        "title": "Risotto de Setas",
+        "shortDesc": "Un plato italiano cremoso de arroz con hongos, cebolla, ajo, vino blanco y parmesano.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-19"
+      },
+      {
+        "id": "10",
+        "title": "Hamburguesa Casera",
+        "shortDesc": "Una hamburguesa jugosa hecha con carne picada, lechuga, tomate, cebolla y pan de hamburguesa.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-19"
+      }
+    ],
+    "Sábado": [
+      {
+        "id": "11",
+        "title": "Lasagna de Espinacas",
+        "shortDesc": "Una versión vegetariana de la lasaña clásica con espinacas, ricotta, mozzarella y salsa de tomate.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-20"
+      },
+      {
+        "id": "12",
+        "title": "Sopa de Tomate",
+        "shortDesc": "Una sopa cremosa de tomate con albahaca fresca y un toque de nata.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-20"
+      }
+    ],
+    "Domingo": [
+      {
+        "id": "13",
+        "title": "Tarta de Manzana",
+        "shortDesc": "Una tarta clásica de manzana con una masa crujiente y un relleno de manzanas caramelizadas.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-21"
+      },
+      {
+        "id": "14",
+        "title": "Pescado al Vapor",
+        "shortDesc": "Filetes de pescado sazonados al vapor con limón, perejil y especias.",
+        "imageSrc": "https://img.taste.com.au/i_rHrnnb/w720-h480-cfill-q80/taste/2022/04/rice-177709-3.jpg",
+        "dateAdded": "2024-04-21"
+      }
+    ]
+  }
+}

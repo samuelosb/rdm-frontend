@@ -1,0 +1,320 @@
+{
+  "upperMenu": {
+    "forum": "Forum",
+    "search-placeholder": "Search...",
+    "favs": "Favorites",
+    "weekPlan": "Week Menu",
+    "login": "Login",
+    "userConfig": "User",
+    "admin": "Admin",
+    "logout": "Logout",
+    "register": "Register User"
+  },
+  "footer": {
+    "rights": "© 2024 RecetasDelMundo.com. No rights reserved.",
+    "legal": "Legal",
+    "about": "About Us"
+  },
+  "forum": {
+    "title": "Forum",
+    "header": "Welcome to the website forum. If you want to participate, create a user account.",
+    "titles": "Title",
+    "date": "Date",
+    "author": "Author",
+    "srchIn": "Search in this category...",
+    "messagesOf": "Messages of thread: ",
+    "reply": "+ Reply",
+    "close": "Close",
+    "send": "Send",
+    "replyingTo": "Replying to thread.",
+    "message": "Message: ",
+    "genTitle": "General Inquiries",
+    "newThread": "+ New Thread",
+    "genSubtitle": "Forum for doubts about recipe preparation and ingredients",
+    "hckTitle": "Kitchen Hacks",
+    "hckSubtitle": "Forum for sharing cooking tips that make dish preparation easier",
+    "toolsTitle": "Utensils and Equipment",
+    "toolsSubtitle": "Forum for doubts about kitchen equipment and tools.",
+    "winesTitle": "Wines and Pairing",
+    "winesSubtitle": "Pairing advice and wine recommendations."
+  },
+  "search": {
+    "title": "Perform an extended search here",
+    "placeholder": "Advanced search...",
+    "cuisineTypes": {
+      "placeholder": "Cuisine Type",
+      "American": "American",
+      "Asian": "Asian",
+      "British": "British",
+      "Caribbean": "Caribbean",
+      "CentralEurope": "Central Europe",
+      "Chinese": "Chinese",
+      "EasternEurope": "Eastern Europe",
+      "French": "French",
+      "Indian": "Indian",
+      "Italian": "Italian",
+      "Japanese": "Japanese",
+      "Kosher": "Kosher",
+      "Mediterranean": "Mediterranean",
+      "Mexican": "Mexican",
+      "MiddleEastern": "Middle Eastern",
+      "Nordic": "Nordic",
+      "SouthAmerican": "South American",
+      "SouthEastAsian": "South East Asian"
+    },
+    "dishTypes": {
+      "placeholder": "Dish Type",
+      "BiscuitsAndCookies": "Biscuits and cookies",
+      "Bread": "Bread",
+      "Cereals": "Cereals",
+      "CondimentsAndSauces": "Condiments and sauces",
+      "Desserts": "Desserts",
+      "Drinks": "Drinks",
+      "MainCourse": "Main course",
+      "Pancake": "Pancake",
+      "Preps": "Preps",
+      "Preserve": "Preserve",
+      "Salad": "Salad",
+      "Sandwiches": "Sandwiches",
+      "SideDish": "Side dish",
+      "Soup": "Soup",
+      "Starter": "Starter",
+      "Sweets": "Sweets"
+    },
+    "mealTypes": {
+      "placeholder": "Meal Type",
+      "Breakfast": "Breakfast",
+      "Dinner": "Dinner",
+      "Lunch": "Lunch",
+      "Snack": "Snack",
+      "Teatime": "Teatime"
+    },
+    "healthOptions": {
+      "placeholder": "Health",
+      "alcoholCocktail": "Alcohol cocktail",
+      "alcoholFree": "Alcohol-free",
+      "celeryFree": "Celery-free",
+      "crustaceanFree": "Crustacean-free",
+      "dairyFree": "Dairy-free",
+      "DASH": "DASH",
+      "eggFree": "Egg-free",
+      "fishFree": "Fish-free",
+      "fodmapFree": "FODMAP-free",
+      "glutenFree": "Gluten-free",
+      "immunoSupportive": "Immuno-supportive",
+      "ketoFriendly": "Keto-friendly",
+      "kidneyFriendly": "Kidney-friendly",
+      "kosher": "Kosher",
+      "lowFatAbs": "Low-fat-abs",
+      "lowPotassium": "Low-potassium",
+      "lowSugar": "Low-sugar",
+      "lupineFree": "Lupine-free",
+      "Mediterranean": "Mediterranean",
+      "molluskFree": "Mollusk-free",
+      "mustardFree": "Mustard-free",
+      "noOilAdded": "No-oil-added",
+      "paleo": "Paleo",
+      "peanutFree": "Peanut-free",
+      "pescatarian": "Pescatarian",
+      "porkFree": "Pork-free",
+      "redMeatFree": "Red-meat-free",
+      "sesameFree": "Sesame-free",
+      "shellfishFree": "Shellfish-free",
+      "soyFree": "Soy-free",
+      "sugarConscious": "Sugar-conscious",
+      "sulfiteFree": "Sulfite-free",
+      "treeNutFree": "Tree-nut-free",
+      "vegan": "Vegan",
+      "vegetarian": "Vegetarian",
+      "wheatFree": "Wheat-free"
+    },
+    "diets": {
+      "placeholder": "Diet",
+      "title": "Diet",
+      "vegetarian": "Vegetarian",
+      "vegan": "Vegan",
+      "paleo": "Paleo",
+      "highFiber": "High Fiber",
+      "highProtein": "High Protein",
+      "lowCarb": "Low Carb",
+      "lowFat": "Low Fat",
+      "lowSodium": "Low Sodium",
+      "lowSugar": "Low Sugar",
+      "noAlcohol": "No Alcohol",
+      "balanced": "Balanced",
+      "immunity": "Immunity"
+    },
+    "ingredients": {
+      "placeholder": "Difficulty",
+      "0-3": "easy",
+      "4-7": "medium",
+      "8+": "difficult"
+    },
+    "calories": {
+      "placeholder": "Calories"
+    },
+    "time": {
+      "placeholder": "Time"
+    },
+    "results": {
+      "title": "Results",
+      "loadMore": "Load More",
+      "noResultsFound": "No results found",
+      "recipeAdded": "Recipe added to your weekly menu"
+    },
+    "allergies": {
+      "placeholder": "Allgergies",
+      "title": "Allergies",
+      "gluten": "Gluten",
+      "dairy": "Dairy",
+      "eggs": "Eggs",
+      "soy": "Soy",
+      "wheat": "Wheat",
+      "fish": "Fish",
+      "shellfish": "Shellfish",
+      "nuts": "Nuts",
+      "peanuts": "Peanuts"
+    },
+    "difficulties": {
+      "placeholder": "Difficulty",
+      "title": "Difficulty",
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    }
+  },
+  "home": {
+    "topR": "Top recipes of the world",
+    "secT": "For all tastes",
+    "Fácil": "Easy",
+    "Intermedia": "Intermediate",
+    "Moderado": "Moderate",
+    "Avanzada": "Advanced",
+    "easy": "easy",
+    "medium": "medium",
+    "hard": "hard",
+    "forumposts": "Latest forum posts",
+    "mostCommentedPosts": "Posts with the Most Community Engagement",
+    "randomR": "Discover New Flavors with Creative Recipe Ideas \uD83D\uDD25"
+  },
+  "favorites": {
+    "title": "List of Favorite recipes",
+    "added": "Added",
+    "empty": "Your favorites list is empty"
+  },
+  "register": {
+    "title": "Register New User Account",
+    "name": "Name",
+    "email": "Email",
+    "pass": "Password",
+    "repeatPass": "Repeat Password",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "nonBinary": "Non-Binary",
+    "selectGender": "Please select your gender.",
+    "terms": "I accept the terms and conditions",
+    "acceptTerms": "You must accept the terms to create an account",
+    "back": "Back",
+    "submit": "Register",
+    "weakPass": "Password too weak."
+  },
+  "resetPassword": {
+    "title": "Reset Password",
+    "email": "Email",
+    "back": "Back",
+    "submit": "Reset Password",
+    "successMessage": "An email has been sent to reset your password. Please check your email."
+  },
+  "login": {
+    "title": "Log in to Your Account",
+    "pass": "Password",
+    "forget": "Forgot Your Password?",
+    "back": "Back",
+    "submit": "Log In",
+    "banned": "Account Banned!"
+  },
+  "admin": {
+    "delPost": "Post deleted",
+    "delComm": "Comment deleted"
+  },
+  "userConfig": {
+    "title": "User Configuration",
+    "personalDataHeader": "Personal Data",
+    "personalDataDescription": "Change account details, such as name, email",
+    "changePasswordHeader": "Change Password",
+    "changePasswordDescription": "Change the account access password.",
+    "banned": "User banned: "
+  },
+  "changePassword": {
+    "title": "Change Password",
+    "currentPass": "Current Password",
+    "currentPassPlaceholder": "Enter current password",
+    "newPass": "New Password",
+    "newPassPlaceholder": "Enter new password",
+    "confirmNewPass": "Confirm New Password",
+    "back": "Back",
+    "submit": "Change",
+    "weakPass": "Password too weak."
+  },
+  "changeUserData": {
+    "title": "User Configuration",
+    "name": "Name",
+    "email": "Email",
+    "back": "Back",
+    "save": "Save"
+  },
+  "week": {
+    "title": "Plan of meals for the week.",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
+  },
+  "about": {
+    "title": "About Us",
+    "intro": {
+      "heading": "Who We Are",
+      "description": "\"Recetas Del Mundo\" is more than just a recipe website. It is a platform that aims to explore and celebrate the culinary diversity of the world."
+    },
+    "mission": {
+      "part1": "The website aims to bring people together through food and break cultural and geographical barriers. Each recipe on our website is a culinary journey that invites our users to discover new cultures and flavors.",
+      "part2": "Our goal is to create a global community of food lovers, where each dish tells a story and each story connects people."
+    },
+    "team": {
+      "description": "We are a small team from Zaragoza, the creators behind the magic of “Recipes of the World”. Our roots extend across the globe. We weave a tapestry of flavors on a website. Through cooking, we build bridges. Each recipe is a chapter of our shared story."
+    },
+    "teamLabel": "The Recipes of the World Team"
+  },
+  "legal": {
+    "title": "Legal Information",
+    "intro": {
+      "heading": "Legal Information",
+      "description": "Learn about the policies that govern our commitment to privacy and responsible data handling."
+    },
+    "privacyPolicy": {
+      "heading": "Privacy Policy",
+      "description": "\"Recipes of the World\" respects your privacy. We collect only the information necessary to improve your experience on our website. We do not share your data with third parties without your explicit consent. Our privacy policy is designed to protect your information. We encourage you to read our privacy policy to understand how we use and protect your data. Your trust is our priority."
+    },
+    "cookiePolicy": {
+      "heading": "Cookie Policy",
+      "description": "\"Recipes of the World\" uses cookies to personalize and enhance your browsing experience. These small units of data allow us to remember your preferences and tailor our pages to your tastes. We do not collect personal data through cookies without your explicit consent. You have full control and can change your cookie preferences at any time. For more information, please see our cookie policy."
+    }
+  },
+  "viewRecipe": {
+    "giveYourRating": "Give your rating",
+    "communityRating": "Community rating",
+    "nutrition": "Nutrition",
+    "calories": "calories",
+    "portion": "portion",
+    "portions": "portions",
+    "goToInstructions": "Go to instructions",
+    "at": "at",
+    "delFav": "Delete from Favorites",
+    "addFav": "Add to Favorites",
+    "addWeek": "Add to Menu"
+  }
+}
