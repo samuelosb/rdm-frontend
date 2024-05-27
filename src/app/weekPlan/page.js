@@ -53,11 +53,15 @@ export default function WeekPlan() {
         };
         try {
             const response = await fetch(process.env.NEXT_PUBLIC_RECIPES_URL + "/delWeekMenu", reqOptions);
-        } finally {
-            //Refresh the page to get the updated list
-            window.location.reload()
+            if (response.ok) {
+                setWeekList(prevWeekList => {
+                    const updatedDayList = prevWeekList[day].filter(r => r.recipe.uri.split("_")[1] !== recipeId);
+                    return { ...prevWeekList, [day]: updatedDayList };
+                });
+            }
+        } catch (error) {
+            console.error('Error deleting recipe from menu:', error);
         }
-
     };
 
     useEffect(() => {
@@ -73,7 +77,11 @@ export default function WeekPlan() {
             try {
                 //Call to the api to get the id list of the week menu
                 const opt1 = {
-                    method: 'GET'
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)
+                    }
                 };
 
                 // Gets the initial list containing the days of the week, and the arrays with

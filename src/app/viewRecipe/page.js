@@ -51,10 +51,20 @@ export default function ViewRecipe() {
 
     const fetchUserRating = async (recipeId, userId) => {
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_RECIPES_URL}/user-rating?recipeId=${recipeId}&userId=${userId}`);
+            const requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)
+                }
+            };
+            const response = await fetch(`${process.env.NEXT_PUBLIC_RECIPES_URL}/user-rating?recipeId=${recipeId}&userId=${userId}`, requestOptions);
             if (response.ok) {
                 const userRatingData = await response.json();
-                return {rating: userRatingData.userRating.rating, averageRating: userRatingData.averageRating};
+                return {
+                    rating: userRatingData.userRating ? userRatingData.userRating.rating : 0,
+                    averageRating: userRatingData.averageRating
+                };
             } else {
                 return {rating: 0, averageRating: 0};
             }
@@ -70,13 +80,11 @@ export default function ViewRecipe() {
 
         const reqOptions = {
             method: 'DELETE',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(
-                {
-                    "userId": loggedUserId,
-                    "recipeId": recipeId,
-                }
-            )
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)
+            },
+            body: JSON.stringify({"userId": loggedUserId, "recipeId": recipeId})
         };
 
         try {
@@ -97,15 +105,11 @@ export default function ViewRecipe() {
         redirectToLogin(loggedUserId);
         const requestOptions = {
             method: 'PUT',
-            headers: {'Content-Type': 'application/json',
+            headers: {
+                'Content-Type': 'application/json',
                 'Authorization': "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)
             },
-            body: JSON.stringify(
-                {
-                    "userId": loggedUserId,
-                    "recipeId": recipeId,
-                }
-            )
+            body: JSON.stringify({"userId": loggedUserId, "recipeId": recipeId})
         };
 
         try {
@@ -133,16 +137,11 @@ export default function ViewRecipe() {
 
         const requestOptions = {
             method: 'PUT',
-            headers: {'Content-Type': 'application/json',
+            headers: {
+                'Content-Type': 'application/json',
                 'Authorization': "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)
-        },
-            body: JSON.stringify(
-                {
-                    "userId": loggedUserId,
-                    "recipeId": recId,
-                    "day": day
-                }
-            )
+            },
+            body: JSON.stringify({"userId": loggedUserId, "recipeId": recId, "day": day})
         };
 
         try {
@@ -160,7 +159,10 @@ export default function ViewRecipe() {
 
         const requestOptions = {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)
+            },
             body: JSON.stringify({
                 userId: loggedId,
                 recipeId: recId,
@@ -173,7 +175,6 @@ export default function ViewRecipe() {
             if (response.ok) {
                 toast.success('Rating submitted successfully!');
                 setUserRating(newRating);
-                // Fetch and update the average rating after submitting the rating
                 const ratingData = await fetchUserRating(recId, loggedId);
                 setAverageRating(ratingData.averageRating);
             } else {
@@ -183,7 +184,6 @@ export default function ViewRecipe() {
             toast.error('An error occurred while submitting the rating.');
         }
     };
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -198,10 +198,21 @@ export default function ViewRecipe() {
         };
 
         const getFavState = async () => {
+            const requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)
+                }
+            };
             if (!loggedId) return;
-            const res1 = await fetch(`${process.env.NEXT_PUBLIC_RECIPES_URL}/getFavs?id=${loggedId}`);
+            const res1 = await fetch(`${process.env.NEXT_PUBLIC_RECIPES_URL}/getFavs?id=${loggedId}`, requestOptions);
             const favList = await res1.json();
-            setOnFavorites(favList.some(item => item.recipeId === recId));
+            if (Array.isArray(favList)) {
+                setOnFavorites(favList.some(item => item.recipeId === recId));
+            } else {
+                setOnFavorites(false);
+            }
         };
 
         const getUserRating = async () => {
@@ -222,7 +233,6 @@ export default function ViewRecipe() {
         getFavState();
         getUserRating();
     }, [loggedId, recId]);
-
 
     useEffect(() => {
         if (loggedId) {
@@ -250,23 +260,19 @@ export default function ViewRecipe() {
                                     <Card.Img src={data.recipe.image}/>
                                 </Col>
                                 <Col className="text-center">
-                                        
-                                        {onFavorites ? (
-                                            <Button variant="light" onClick={() => delFromFavorites(loggedId, recId)}>
+                                    {onFavorites ? (
+                                        <Button variant="light" onClick={() => delFromFavorites(loggedId, recId)}>
                                             <OverlayTrigger overlay={<Tooltip>{t("viewRecipe.delFav")}</Tooltip>}>
-                                                <Image style={{width: "80%"}} src="heart2.png"
-                                                       />
+                                                <Image style={{width: "80%"}} src="heart2.png"/>
                                             </OverlayTrigger>
-                                            </Button>
-                                        ) : (
-                                            <Button variant="light" onClick = { () => addToFavorites(loggedId, recId) }>
-                                             <OverlayTrigger overlay={<Tooltip>{t("viewRecipe.addFav")}</Tooltip>}>
-                                                <Image style={{width: "80%"}} src="heart.png"
-                                                       onClick={() => addToFavorites(loggedId, recId)}/>
-                                             </OverlayTrigger>
-                                            </Button>
-                                        )}
-                                    
+                                        </Button>
+                                    ) : (
+                                        <Button variant="light" onClick={() => addToFavorites(loggedId, recId)}>
+                                            <OverlayTrigger overlay={<Tooltip>{t("viewRecipe.addFav")}</Tooltip>}>
+                                                <Image style={{width: "80%"}} src="heart.png"/>
+                                            </OverlayTrigger>
+                                        </Button>
+                                    )}
                                     <Button variant="light" onClick={() => setShowDays(true)}>
                                         <OverlayTrigger overlay={<Tooltip>{t("viewRecipe.addWeek")}</Tooltip>}>
                                             <Image style={{width: "80%"}} src="calendar.png"/>
@@ -307,7 +313,7 @@ export default function ViewRecipe() {
                                     </Row>
                                     <Row className="text-center">
                                         <hr/>
-                                            <CardText><strong>{data.recipe.yield} {t("viewRecipe.portions")}</strong></CardText>
+                                        <CardText><strong>{data.recipe.yield} {t("viewRecipe.portions")}</strong></CardText>
                                         <CardText>{t("viewRecipe.nutrition")}:<br/>{Math.trunc(data.recipe.calories / data.recipe.yield)} {t("viewRecipe.calories")}
                                             / {t("viewRecipe.portion")}.</CardText>
                                         <ListGroup.Item>
@@ -335,7 +341,7 @@ export default function ViewRecipe() {
                 )}
             </Container>
 
-            <Modal transition={true} show={showDays}>
+            <Modal transition={showDays.toString()} show={showDays}>
                 <Container>
                     <Card className="px-9">Agregar al menú de...
                         <Container>
@@ -359,6 +365,7 @@ export default function ViewRecipe() {
                     </Card>
                 </Container>
             </Modal>
+
         </>
     );
 }

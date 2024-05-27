@@ -189,7 +189,7 @@ export default function ViewThread() {
     return (
         <>
             <ToastContainer/>
-           
+
             <Container className={"my-4 px-5"}>
                 {isLoading ? (
                     <Loading/>
@@ -204,7 +204,7 @@ export default function ViewThread() {
                         </Breadcrumb>
                         <Row>
                             <Col>
-                                
+
                             </Col>
 
                             <Col xs="auto" className="ml-auto">
@@ -249,10 +249,7 @@ export default function ViewThread() {
                                     }
                                 </Row>
 
-                                <Card.Text>
-                                    <div
-                                        dangerouslySetInnerHTML={{__html: mainPost.post.content.replace(/\n/g, '<br />')}}/>
-                                </Card.Text>
+                                <Card.Text dangerouslySetInnerHTML={{__html: mainPost.post.content.replace(/\n/g, '<br />')}} />
                             </Card.Body>
                         </Card>
                     </>
@@ -301,10 +298,7 @@ export default function ViewThread() {
                                                     </Col>)}
                                                 </Row>
 
-                                                <Card.Text>
-                                                    <div
-                                                        dangerouslySetInnerHTML={{__html: comm.comm.content.replace(/\n/g, '<br />')}}/>
-                                                </Card.Text>
+                                                <Card.Text dangerouslySetInnerHTML={{__html: comm.comm.content.replace(/\n/g, '<br />')}} />
                                             </Card.Body>
                                         </Card>
                                     ))}</div>

@@ -16,7 +16,7 @@ export default function Loading() {
     return (
         <Container fluid className="mt-4">
             <div className="d-flex justify-content-center align-items-center" style={{height: '50vh'}}>
-                <img className={styles.rotate} src="/loading.png" width={28} alt="Loading"/>&nbsp;{t("results.loading")}
+                <img className={styles.rotate} src="/loading.png" width={28} alt="Loading"/>&nbsp;{t("searchResults.loading")}
             </div>
         </Container>
     );

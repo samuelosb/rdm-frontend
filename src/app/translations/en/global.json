@@ -156,12 +156,6 @@
     "time": {
       "placeholder": "Time"
     },
-    "results": {
-      "title": "Results",
-      "loadMore": "Load More",
-      "noResultsFound": "No results found",
-      "recipeAdded": "Recipe added to your weekly menu"
-    },
     "allergies": {
       "placeholder": "Allgergies",
       "title": "Allergies",
@@ -182,6 +176,17 @@
       "medium": "Medium",
       "hard": "Hard"
     }
+  },
+  "searchResults": {
+    "title": "Results",
+    "loading": "Loading...",
+    "more": "More",
+    "end": "End.",
+    "addToMenu": "Add to menu of...",
+    "noResultsFound": "No results found",
+    "loadMore": "Load more.",
+    "recipeAdded": "Recipe added to your weekly menu",
+    "searchAgain": "Search again"
   },
   "home": {
     "topR": "Top recipes of the world",
@@ -244,25 +249,38 @@
     "personalDataDescription": "Change account details, such as name, email",
     "changePasswordHeader": "Change Password",
     "changePasswordDescription": "Change the account access password.",
-    "banned": "User banned: "
+    "invalidToken": "Invalid token. Please log in again.",
+    "errorMessage": "Error fetching user data. Please try again."
   },
   "changePassword": {
     "title": "Change Password",
     "currentPass": "Current Password",
     "currentPassPlaceholder": "Enter current password",
+    "currentPassRequired": "Current password is required",
     "newPass": "New Password",
     "newPassPlaceholder": "Enter new password",
     "confirmNewPass": "Confirm New Password",
+    "weakPass": "Password too weak.",
+    "passwordsDontMatch": "Passwords do not match",
     "back": "Back",
     "submit": "Change",
-    "weakPass": "Password too weak."
+    "invalidToken": "Invalid token. Please log in again.",
+    "successMessage": "Password changed successfully.",
+    "errorMessage": "Error changing password. Please try again."
   },
   "changeUserData": {
-    "title": "User Configuration",
+    "title": "Update Personal Information",
     "name": "Name",
     "email": "Email",
     "back": "Back",
-    "save": "Save"
+    "save": "Save",
+    "invalidToken": "Invalid token. Please log in again.",
+    "successMessage": "User details updated successfully.",
+    "errorMessage": "Error updating user details. Please try again.",
+    "namePlaceholder": "Enter your name",
+    "emailPlaceholder": "example@domain.com",
+    "nameRequired": "Name is required",
+    "emailRequired": "A valid email is required"
   },
   "week": {
     "title": "Plan of meals for the week.",
@@ -316,5 +334,25 @@
     "delFav": "Delete from Favorites",
     "addFav": "Add to Favorites",
     "addWeek": "Add to Menu"
+  },
+  "userListPage": {
+    "title": "User List",
+    "loading": "Loading...",
+    "errorLoadingData": "Error loading data",
+    "userInfo": "User Information ",
+    "unban": "Unban",
+    "ban": "Ban",
+    "withdrawAdmin": "Withdraw Admin",
+    "makeAdmin": "Make Admin",
+    "name": "Name",
+    "gender": "Gender",
+    "role": "Role",
+    "registrationDate": "Registration Date",
+    "numberOfPosts": "Number of Posts",
+    "numberOfComments": "Number of Comments",
+    "banSuccess": "User banned successfully",
+    "unbanSuccess": "User unbanned successfully",
+    "makeAdminSuccess": "User made admin successfully",
+    "withdrawAdminSuccess": "Admin rights withdrawn successfully"
   }
 }

@@ -1,7 +1,10 @@
 'use client'
-import {useState} from 'react';
-import {Button, Col, Form, Row, Container} from 'react-bootstrap';
-import {useTranslation} from 'react-i18next';
+import { useState } from 'react';
+import { Button, Col, Form, Row, Container } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+import { getCookie } from 'cookies-next';
+import jwt from 'jsonwebtoken';
+import { useRouter } from 'next/navigation';
 import styles from "../../page.module.css";
 
 /**
@@ -12,22 +15,66 @@ import styles from "../../page.module.css";
  */
 
 export default function UserConfig() {
-    const {t} = useTranslation("global");
+    const { t } = useTranslation("global");
+    const router = useRouter();
     const [validated, setValidated] = useState(false);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
     /**
      * Handles form submission, validating the form fields before allowing submission.
      * @param {Object} ev - The form submission event.
      */
-    const handleSubmit = (ev) => {
+    const handleSubmit = async (ev) => {
+        ev.preventDefault();
+        ev.stopPropagation();
         const form = ev.currentTarget;
+
         if (form.checkValidity() === false) {
-            ev.preventDefault();
-            ev.stopPropagation();
             setValidated(false);
+            return;
         }
+
         setValidated(true);
-        console.log(validated);
+
+        try {
+            const token = getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE);
+            const decodedToken = jwt.decode(token);
+            const userId = decodedToken ? decodedToken.id : null;
+
+            if (!userId) {
+                setErrorMessage(t("changeUserData.invalidToken"));
+                return;
+            }
+
+            const response = await fetch(`${process.env.NEXT_PUBLIC_USERS_URL}/update-details`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    id: userId,
+                    newEmail: email,
+                    newUsername: name
+                })
+            });
+
+            if (response.ok) {
+                setSuccessMessage(t("changeUserData.successMessage"));
+                setErrorMessage('');
+            } else {
+                const result = await response.json();
+                setErrorMessage(result.message || t("changeUserData.errorMessage"));
+                setSuccessMessage('');
+            }
+        } catch (error) {
+            console.error('Error updating user details:', error);
+            setErrorMessage(t("changeUserData.errorMessage"));
+            setSuccessMessage('');
+        }
     };
 
     return (
@@ -41,8 +88,12 @@ export default function UserConfig() {
                             required
                             type="text"
                             placeholder="John Doe"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                         />
-                        <Form.Control.Feedback/>
+                        <Form.Control.Feedback type="invalid">
+                            {t("changeUserData.nameRequired")}
+                        </Form.Control.Feedback>
                     </Form.Group>
                 </Row>
                 <Row className="mb-3">
@@ -51,16 +102,33 @@ export default function UserConfig() {
                         <Form.Control
                             required
                             pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
-                            type="text"
+                            type="email"
                             placeholder="example@domain.com"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
-                        <Form.Control.Feedback/>
+                        <Form.Control.Feedback type="invalid">
+                            {t("changeUserData.emailRequired")}
+                        </Form.Control.Feedback>
                     </Form.Group>
                 </Row>
-                <Container fluid>
-                    <Button className="me-3" variant="secondary" href="/userConfig">{t("changeUserData.back")}</Button>
-                    <Button variant="dark" type="submit"><img src="/check-square.svg"
-                                                              alt="Save Icon"/> {t("changeUserData.save")}</Button>
+                {errorMessage && (
+                    <Row className="mb-3">
+                        <Col>
+                            <p className="text-danger">{errorMessage}</p>
+                        </Col>
+                    </Row>
+                )}
+                {successMessage && (
+                    <Row className="mb-3">
+                        <Col>
+                            <p className="text-success">{successMessage}</p>
+                        </Col>
+                    </Row>
+                )}
+                <Container className="d-flex justify-content-between">
+                    <Button className="me-3" variant="secondary" onClick={() => router.push('/userConfig')}>{t("changeUserData.back")}</Button>
+                    <Button variant="dark" type="submit"><img src="/check-square.svg" alt="Save Icon"/> {t("changeUserData.save")}</Button>
                 </Container>
             </Form>
         </Container>

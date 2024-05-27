@@ -156,12 +156,6 @@
     "time": {
       "placeholder": "Tiempo"
     },
-    "results": {
-      "title": "Resultados",
-      "loadMore": "Cargar más",
-      "noResultsFound": "No se encontraron resultados",
-      "recipeAdded": "Receta añadida a tu menú semanal"
-    },
     "allergies": {
       "placeholder": "Alergias",
       "title": "Alergias",
@@ -183,14 +177,16 @@
       "hard": "Difícil"
     }
   },
-  "results": {
+  "searchResults": {
     "title": "Resultados",
     "loading": "Cargando...",
     "more": "Más",
     "end": "Fin.",
     "addToMenu": "Agregar al menú de...",
     "noResultsFound": "No se han encontrado resultados",
-    "loadMore": "Cargar más"
+    "loadMore": "Cargar más",
+    "recipeAdded": "Receta añadida a tu menú semanal",
+    "searchAgain": "Buscar de nuevo"
   },
   "home": {
     "topR": "Top recetas del mundo",
@@ -253,25 +249,38 @@
     "personalDataDescription": "Cambiar datos de la cuenta, como el nombre, email",
     "changePasswordHeader": "Cambio de contraseña",
     "changePasswordDescription": "Cambia la contraseña de acceso a la cuenta.",
-    "banned": "Usuario bloqueado: "
+    "invalidToken": "Token inválido. Por favor, inicie sesión nuevamente.",
+    "errorMessage": "Error al obtener datos del usuario. Por favor, inténtelo de nuevo."
   },
   "changePassword": {
     "title": "Cambio de contraseña",
     "currentPass": "Contraseña actual",
     "currentPassPlaceholder": "Ingrese contraseña actual",
+    "currentPassRequired": "La contraseña actual es obligatoria",
     "newPass": "Nueva Contraseña",
     "newPassPlaceholder": "Ingrese nueva contraseña",
     "confirmNewPass": "Repita Nueva Contraseña",
+    "weakPass": "Contraseña demasiado débil.",
+    "passwordsDontMatch": "Las contraseñas no coinciden",
     "back": "Volver",
     "submit": "Cambiar",
-    "weakPass": "Contraseña demasiado débil."
+    "invalidToken": "Token inválido. Por favor inicie sesión de nuevo.",
+    "successMessage": "Contraseña cambiada con éxito.",
+    "errorMessage": "Error al cambiar la contraseña. Por favor, inténtelo de nuevo."
   },
   "changeUserData": {
-    "title": "Configuración de usuario",
+    "title": "Actualizar información personal",
     "name": "Nombre",
-    "email": "Email",
+    "email": "Correo electrónico",
     "back": "Volver",
-    "save": "Guardar"
+    "save": "Guardar",
+    "invalidToken": "Token inválido. Por favor, inicie sesión nuevamente.",
+    "successMessage": "Detalles del usuario actualizados con éxito.",
+    "errorMessage": "Error al actualizar los detalles del usuario. Por favor, inténtelo de nuevo.",
+    "namePlaceholder": "Ingrese su nombre",
+    "emailPlaceholder": "example@domain.com",
+    "nameRequired": "El nombre es obligatorio",
+    "emailRequired": "Se requiere un correo electrónico válido"
   },
   "week": {
     "title": "Planificacion de recetas de la semana.",
@@ -325,5 +334,25 @@
     "delFav": "Eliminar de Favoritos",
     "addFav": "Agregar a Favoritos",
     "addWeek": "Agregar al Menú"
+  },
+  "userListPage": {
+    "title": "Lista de Usuarios",
+    "loading": "Cargando...",
+    "errorLoadingData": "Error al cargar datos",
+    "userInfo": "Información del usuario ",
+    "unban": "Desbloquear",
+    "ban": "Bloquear",
+    "withdrawAdmin": "Retirar Admin",
+    "makeAdmin": "Hacer Admin",
+    "name": "Nombre",
+    "gender": "Género",
+    "role": "Rol",
+    "registrationDate": "Fecha de registro",
+    "numberOfPosts": "Número de publicaciones",
+    "numberOfComments": "Número de comentarios",
+    "banSuccess": "Usuario bloqueado con éxito",
+    "unbanSuccess": "Usuario desbloqueado con éxito",
+    "makeAdminSuccess": "Usuario hecho admin con éxito",
+    "withdrawAdminSuccess": "Derechos de admin retirados con éxito"
   }
 }

@@ -13,15 +13,11 @@
 "use client";
 
 import styles from "../page.module.css";
-
-// Import of ReactBootstrap components
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
 import {Button, Col, Row} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
-
-// Next.js Link component
 import Link from 'next/link';
 import {useEffect, useState} from "react";
 import moment from "moment";
@@ -51,9 +47,10 @@ export default function Favorites() {
         };
         try {
             await fetch(process.env.NEXT_PUBLIC_RECIPES_URL + "/delFav", reqOptions);
-        } finally {
-            // Refresh the page to get the updated list
-            window.location.reload();
+            // Update the favList state to remove the deleted recipe
+            setFavList(prevFavList => prevFavList.filter(favRec => favRec.recipe.uri.split("_")[1] !== recipeId));
+        } catch (error) {
+            console.error('Error deleting favorite:', error);
         }
     };
 
@@ -75,7 +72,13 @@ export default function Favorites() {
          */
         const getFavList = async () => {
             try {
-                const opt1 = {method: 'GET'};
+                const opt1 = {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)
+                    },
+                };
                 const res1 = await fetch(`${process.env.NEXT_PUBLIC_RECIPES_URL}/getFavs?id=` +
                     (jwt.decode(getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE))).id, opt1);
 
@@ -120,8 +123,12 @@ export default function Favorites() {
                                                         <Card.Text>{t("favorites.added")} {moment(favRec.addedDate).format("DD/MM/YYYY")}</Card.Text>
                                                     </Card.Body>
                                                     <Button
-                                                        onClick={() => delFromFavorites((jwt.decode(getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)).id), favRec.recipe.uri.split("_")[1])}
-                                                        variant="light"><Image src="delete.svg"/></Button>
+                                                        onClick={(e) => {
+                                                            e.preventDefault(); // Prevent the default behavior of the link
+                                                            delFromFavorites((jwt.decode(getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)).id), favRec.recipe.uri.split("_")[1]);
+                                                        }}
+                                                        variant="light"><Image src="delete.svg"/>
+                                                    </Button>
                                                 </Card>
                                             </Link>
                                         </Col>

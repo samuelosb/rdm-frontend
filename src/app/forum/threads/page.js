@@ -266,25 +266,20 @@ export default function Threads() {
                             !isLoading && threads.length == 0 ? (
                                 <Container flex>Esta categoría no contiene hilos actualmente</Container>
                             ) : (
-                                threads.map((thread) => (<>
-                                    
+                                threads.map((thread) => (
                                     <Card.Body key={thread.thread.postId} className="mb-3">
                                         <Link href={`/forum/viewThread?thread=${thread.thread.postId}&category=${categoryTitle}`}>
                                             <Row className='align-items-center'>
                                                 <Col xs={6} sm={6} md={6}>
-                                                    <div className="text-truncate small-text"
-                                                         title={thread.thread.postTitle}>
+                                                    <div className="text-truncate small-text" title={thread.thread.postTitle}>
                                                         {thread.thread.postTitle}
                                                     </div>
                                                 </Col>
                                                 <Col xs={4} sm={2} md={2} className="text-center mt-2 mt-sm-0">
-                                                    <span
-                                                        className="small-text">{moment(thread.thread.timePublication).format("DD/MM/YYYY HH:mm")}</span>
+                                                    <span className="small-text">{moment(thread.thread.timePublication).format("DD/MM/YYYY HH:mm")}</span>
                                                 </Col>
-                                                <Col sm={2} md={2}
-                                                     className="text-center mt-2 mt-sm-0 d-none d-sm-block">
-                                                    <Image className="align-middle" src="/profile.png" width="25"
-                                                           height="25" alt="Profile"/>
+                                                <Col sm={2} md={2} className="text-center mt-2 mt-sm-0 d-none d-sm-block">
+                                                    <Image className="align-middle" src="/profile.png" width="25" height="25" alt="Profile"/>
                                                     <span className="small-text">{thread.username}</span>
                                                 </Col>
                                                 <Col xs={2} sm={12} md={2} className="text-center mt-2 mt-sm-0">
@@ -293,7 +288,7 @@ export default function Threads() {
                                             </Row>
                                         </Link>
                                     </Card.Body>
-                                </>))
+                                ))
                             )}
 
                 </Card>

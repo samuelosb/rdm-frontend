@@ -171,11 +171,16 @@
     font-size: 0.8rem; /* Sets the font size for details */
 }
 
+/* Updated post-card-text class */
 .post-card-text {
     font-size: 0.8rem; /* Adjust the size as needed */
     position: relative;
     max-height: 8rem; /* Adjust this value based on your desired text height */
     overflow: hidden;
+    text-overflow: ellipsis; /* Adds ellipsis to overflow text */
+    display: -webkit-box; /* Ensures the box model is applied for ellipsis */
+    -webkit-line-clamp: 5; /* Limits the text to 3 lines */
+    -webkit-box-orient: vertical; /* Ensures the text is vertically oriented */
 }
 
 .post-card-text::after {

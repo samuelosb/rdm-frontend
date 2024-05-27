@@ -121,7 +121,14 @@ export default function Home() {
         // Fetch dynamic recipes data from the server
         const loadDynamicRecipesData = async () => {
             try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_RECIPES_URL}/top-rated`);
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)
+                    }
+                };
+                const response = await fetch(`${process.env.NEXT_PUBLIC_RECIPES_URL}/top-rated`, requestOptions);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -239,12 +246,12 @@ export default function Home() {
                         ) : (
                             forumPostsData.map((post) => (
                                 <Col key={post._id} xs={9} md={6} lg={3}>
-                                    <Link href={`forum/viewThread?thread=${post.postId}&page=1`}>
+                                    <a href={`forum/viewThread?thread=${post.postId}&page=1`}>
                                         <Card>
                                             <Card.Body>
                                                 <Card.Title>{post.postTitle}</Card.Title>
                                                 <Card.Text className="post-card-text">
-                                                    {post.content.length > 200 ? post.content.substring(0, 200) + '...' : post.content}
+                                                    {post.content}
                                                 </Card.Text>
                                                 <div className="post-details">
                                                     <span>{new Date(post.timePublication).toLocaleDateString()}</span>
@@ -252,7 +259,7 @@ export default function Home() {
                                                 </div>
                                             </Card.Body>
                                         </Card>
-                                    </Link>
+                                    </a>
                                 </Col>
                             ))
                         )}
@@ -282,7 +289,8 @@ export default function Home() {
                             randomRecipesData.map((recipe, index) => (
 
                                 <Col key={index} xs={9} md={6} lg={3}>
-                                    <Link href={`/viewRecipe?r=${encodeURIComponent(extractRecipeId(recipe._links.self.href))}`}>
+                                    <Link
+                                        href={`/viewRecipe?r=${encodeURIComponent(extractRecipeId(recipe._links.self.href))}`}>
                                         <Card>
                                             <Card.Img variant="top" src={recipe.recipe.image}/>
                                             <Card.Body>
@@ -335,12 +343,12 @@ export default function Home() {
                         ) : (
                             mostCommentedPostsData.map((post) => (
                                 <Col key={post._id} xs={9} md={6} lg={3}>
-                                    <Link href={`forum/viewThread?thread=${post.postId}&page=1`}>
+                                    <a href={`forum/viewThread?thread=${post.postId}&page=1`}>
                                         <Card>
                                             <Card.Body>
                                                 <Card.Title>{post.postTitle}</Card.Title>
                                                 <Card.Text className="post-card-text">
-                                                    {post.content.length > 200 ? post.content.substring(0, 200) + '...' : post.content}
+                                                    {post.content}
                                                 </Card.Text>
                                                 <div className="post-details">
                                                     <span>{new Date(post.timePublication).toLocaleDateString()}</span>
@@ -348,7 +356,7 @@ export default function Home() {
                                                 </div>
                                             </Card.Body>
                                         </Card>
-                                    </Link>
+                                    </a>
                                 </Col>
                             ))
                         )}
