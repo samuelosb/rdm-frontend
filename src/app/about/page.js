@@ -1,3 +1,9 @@
+/**
+ *
+ * This page provides a little explanation about the purpose of the app,
+ * and the development team.
+ */
+
 'use client';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';

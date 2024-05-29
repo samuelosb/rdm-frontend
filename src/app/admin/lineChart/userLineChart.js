@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Col } from 'react-bootstrap';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { useTranslation } from "react-i18next";
 
 const UserLineChart = ({ data }) => {
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
     const [yearsList, setYearsList] = useState([]);
     const [totalRegistrations, setTotalRegistrations] = useState(0);
     const [genders, setGenders] = useState([]);
+    const { t } = useTranslation("global");
 
     useEffect(() => {
-        // Extraire toutes les années distinctes des données
+        // Extract all distinct years from the data
         const years = [...new Set(data.map(entry => new Date(entry.creationAccountDate).getFullYear()))];
-        // Tri des années par ordre croissant
+        // Sort years in ascending order
         years.sort((a, b) => a - b);
         setYearsList(years);
 
-        // Extraire tous les genres distincts des données
+        // Extract all distinct genders from the data
         const genders = [...new Set(data.map(entry => entry.gender))];
         setGenders(genders);
     }, [data]);
 
     useEffect(() => {
-        // Calculer le nombre total d'inscriptions pour l'année sélectionnée
+        // Calculate the total number of registrations for the selected year
         const registrationsThisYear = data.reduce((total, entry) => {
             const creationAccountDate = new Date(entry.creationAccountDate);
             const year = creationAccountDate.getFullYear();
@@ -33,49 +35,67 @@ const UserLineChart = ({ data }) => {
         setTotalRegistrations(registrationsThisYear);
     }, [data, selectedYear]);
 
-    // Créer un tableau de données avec un objet pour chaque mois de l'année et chaque genre
+    // Create an array of data with an object for each month of the year and each gender
     const monthsData = Array.from({ length: 12 }, (_, index) => {
         const monthObject = { month: index + 1 };
         genders.forEach(gender => {
-            monthObject[gender] = 0; // Initialiser à 0, sera remplacé par le nombre d'inscriptions réelles
+            monthObject[gender] = 0; // Initialize to 0, will be replaced by actual registrations
         });
-        monthObject['Total'] = 0; // Initialiser à 0, pour le total des inscriptions
+        monthObject['Total'] = 0; // Initialize to 0, for the total registrations
         return monthObject;
     });
 
-    // Compter le nombre d'inscriptions pour chaque mois et chaque genre
+    // Count the number of registrations for each month and each gender
     data.forEach(entry => {
         const creationAccountDate = new Date(entry.creationAccountDate);
-        const year = creationAccountDate.getFullYear(); // Obtenez l'année de l'inscription
-        const month = creationAccountDate.getMonth(); // Obtenez le mois de l'inscription
+        const year = creationAccountDate.getFullYear(); // Get the year of registration
+        const month = creationAccountDate.getMonth(); // Get the month of registration
 
-        // Vérifiez si l'inscription est de l'année sélectionnée
+        // Check if the registration is from the selected year
         if (year === selectedYear) {
-            monthsData[month]['Total']++; // Incrémentez le nombre total d'inscriptions pour ce mois
-            monthsData[month][entry.gender]++; // Incrémentez le nombre d'inscriptions pour ce mois et ce genre
+            monthsData[month]['Total']++; // Increment the total number of registrations for this month
+            monthsData[month][entry.gender]++; // Increment the number of registrations for this month and this gender
         }
     });
 
-    // Fonction de gestionnaire de changement pour le sélecteur d'année
+    // Handler function for year selector change
     const handleYearChange = (event) => {
-        setSelectedYear(parseInt(event.target.value)); // Met à jour l'année sélectionnée
+        setSelectedYear(parseInt(event.target.value)); // Update the selected year
+    };
+
+    const getMonthName = (month) => {
+        const monthNames = [
+            t('dateLabels.Ene'),
+            t('dateLabels.Feb'),
+            t('dateLabels.Mar'),
+            t('dateLabels.Abr'),
+            t('dateLabels.May'),
+            t('dateLabels.Jun'),
+            t('dateLabels.Jul'),
+            t('dateLabels.Ago'),
+            t('dateLabels.Sep'),
+            t('dateLabels.Oct'),
+            t('dateLabels.Nov'),
+            t('dateLabels.Dic')
+        ];
+        return monthNames[month - 1]; // Months are zero-based
     };
 
     return (
         <Col>
-            <h4 style={{ textAlign: 'center' }}>Número de registros por año</h4>
+            <h4 style={{ textAlign: 'center' }}>{t("adminOptions.userLineChartTitle")}</h4>
             <div style={{ textAlign: 'center', marginBottom: '10px' }}>
                 {totalRegistrations > 0 &&
-                    <p>Número total de registros en el año {selectedYear}: {totalRegistrations}</p>
+                    <p>{t("adminOptions.userLineChartSubtitle")} {selectedYear}: {totalRegistrations}</p>
                 }
             </div>
             <select value={selectedYear} onChange={handleYearChange}>
-                <option value="">Seleccionar...</option>
+                <option value="">{t("adminOptions.selectYear")}</option>
                 {yearsList.map(year => (
                     <option key={year} value={year}>{year}</option>
                 ))}
             </select>
-            <ResponsiveContainer width={800} height={300}>
+            <ResponsiveContainer width="100%" height={300}>
                 <LineChart
                     data={monthsData}
                     margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
@@ -86,19 +106,13 @@ const UserLineChart = ({ data }) => {
                     <Tooltip />
                     <Legend />
                     {genders.map(gender => (
-                        <Line key={gender} type="monotone" dataKey={gender} stroke={`#${Math.floor(Math.random() * 16777215).toString(16)}`} activeDot={{ r: 8 }} />
+                        <Line key={gender} type="monotone" dataKey={gender} name={t(`genderLabels.${gender.replace(/\s+/g, '')}`, gender)} stroke={`#${Math.floor(Math.random() * 16777215).toString(16)}`} activeDot={{ r: 8 }} />
                     ))}
-                    <Line type="monotone" dataKey="Total" stroke="#8884d8" activeDot={{ r: 8 }} /> {/* Courbe pour le total */}
+                    <Line type="monotone" dataKey="Total" name="Total" stroke="#8884d8" activeDot={{ r: 8 }} /> {/* Line for the total */}
                 </LineChart>
             </ResponsiveContainer>
         </Col>
     );
-};
-
-// Fonction utilitaire pour obtenir le nom du mois à partir de son numéro
-const getMonthName = (month) => {
-    const monthNames = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
-    return monthNames[month - 1]; // Les mois commencent à 1
 };
 
 export default UserLineChart;

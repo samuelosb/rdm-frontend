@@ -7,21 +7,35 @@ import Row from 'react-bootstrap/Row';
 import { Container } from 'react-bootstrap';
 import styles from "../../page.module.css";
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
 
 export default function Page() {
     const { t } = useTranslation("global");
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState('');
 
     const handleEmailChange = (ev) => {
         setEmail(ev.target.value);
     };
 
-    const handleSubmit = (ev) => {
+    const handleSubmit = async (ev) => {
         ev.preventDefault();
-        console.log('Reset password email sent to:', email);
-        setSubmitted(true);
-        // Here email submission to backend to send a password reset email is handled.
+        setSubmitted(false);
+        setError('');
+
+        try {
+            const response = await axios.post(process.env.NEXT_PUBLIC_AUTH_URL + "/request-password-reset", { email });
+            if (response.status === 200) {
+                setSubmitted(true);
+            }
+        } catch (error) {
+            if (error.response && error.response.data && error.response.data.message) {
+                setError(error.response.data.message);
+            } else {
+                setError('An error occurred. Please try again.');
+            }
+        }
     };
 
     return (
@@ -49,6 +63,11 @@ export default function Page() {
             {submitted && (
                 <div className="alert alert-success mt-3">
                     {t("resetPassword.successMessage")}
+                </div>
+            )}
+            {error && (
+                <div className="alert alert-danger mt-3">
+                    {error}
                 </div>
             )}
         </Container>

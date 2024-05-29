@@ -79,6 +79,7 @@ export default function UpperMenu() {
         setIsAuthenticated(false);
         setIsAdmin(false);
         setUser(null);
+        window.location.reload()
     };
 
     return (

@@ -27,6 +27,7 @@ export default function Register() {
     const [acceptedTerms, setAcceptedTerms] = useState(false);
     const [errors, setErrors] = useState({ name: '', email: '', password: '', confirmPassword: '', gender: '', terms: '' });
 
+    // Perform the actual registration using the available endpoint of the API
     const makeRegister = async (nm, em, pass, gender) => {
         const requestOptions = {
             method: 'POST',
@@ -54,6 +55,8 @@ export default function Register() {
         }
     };
 
+    // Check the requerimients of the registration data provided, and shows an error 
+    // on each invalid input, with the reason.
     const handleSubmit = async (ev) => {
         const form = ev.currentTarget;
         ev.preventDefault();
@@ -63,7 +66,7 @@ export default function Register() {
         if (form.checkValidity() === false || !passwordsMatch || !acceptedTerms) {
             if (!form.nameCtrl.value) newErrors.name = 'El nombre es requerido.';
             if (!form.emailCtrl.value || !/^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/i.test(form.emailCtrl.value)) newErrors.email = 'Por favor, ingrese un email válido.';
-            if (!form.passCtrl.value) newErrors.password = 'La contraseña es demasiado débil.';
+            if (!form.passCtrl.value || !/^(?=.*\d)(?=.*[a-zA-Z]).{6,}$/i.test(form.passCtrl.value)) newErrors.password = 'La contraseña es demasiado débil.';
             if (!passwordsMatch) newErrors.confirmPassword = 'Las contraseñas no coinciden.';
             if (!gender) newErrors.gender = 'Por favor, seleccione un género.';
             if (!acceptedTerms) newErrors.terms = 'Debe aceptar los términos y condiciones.';
@@ -144,7 +147,7 @@ export default function Register() {
                     <Form.Group as={Col} controlId="passCtrl">
                         <Form.Label>{t("register.pass")}</Form.Label>
                         <Form.Control
-                            pattern="^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,}$"
+                            pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,}$"
                             type="password"
                             placeholder="Password"
                             onChange={handlePassChange}
@@ -197,6 +200,15 @@ export default function Register() {
                                 label={t("register.nonBinary")}
                                 value="No binario"
                                 checked={gender === "No binario"}
+                                onChange={handleGenderChange}
+                                isInvalid={!!errors.gender}
+                            />
+                            <Form.Check
+                                type="radio"
+                                id="preferNotToSay"
+                                label={t("register.preferNotToSay")}
+                                value="Prefiero no decirlo"
+                                checked={gender === "Prefiero no decirlo"}
                                 onChange={handleGenderChange}
                                 isInvalid={!!errors.gender}
                             />

@@ -43,37 +43,63 @@ export default function ViewRecipe() {
     const [data, setData] = useState([]);
     const [loggedId, setLoggedId] = useState('');
     const [isLoading, setIsLoading] = useState(true);
-    const [onFavorites, setOnFavorites] = useState(true);
+    const [onFavorites, setOnFavorites] = useState(false);
     const [showDays, setShowDays] = useState(false);
     const [userRating, setUserRating] = useState(0);
     const [averageRating, setAverageRating] = useState(0);
+    const [numberOfRatings, setNumberOfRatings] = useState(0);
     const router = useRouter();
 
     const fetchUserRating = async (recipeId, userId) => {
+        if (!userId) return {rating: 0};
+
         try {
             const requestOptions = {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)
+                    'Authorization': userId ? "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE) : ''
                 }
             };
             const response = await fetch(`${process.env.NEXT_PUBLIC_RECIPES_URL}/user-rating?recipeId=${recipeId}&userId=${userId}`, requestOptions);
             if (response.ok) {
                 const userRatingData = await response.json();
                 return {
-                    rating: userRatingData.userRating ? userRatingData.userRating.rating : 0,
-                    averageRating: userRatingData.averageRating
+                    rating: userRatingData.userRating ? userRatingData.userRating : 0
                 };
             } else {
-                return {rating: 0, averageRating: 0};
+                console.error('Failed to fetch user rating');
+                return {rating: 0};
             }
         } catch (error) {
             console.error('Error fetching user rating:', error);
-            return {rating: 0, averageRating: 0};
+            return {rating: 0};
         }
     };
 
+    const fetchAverageRating = async (recipeId) => {
+        try {
+            const requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            };
+            const response = await fetch(`${process.env.NEXT_PUBLIC_RECIPES_URL}/average-rating?recipeId=${recipeId}`, requestOptions);
+            if (response.ok) {
+                const averageRatingData = await response.json();
+                return {
+                    averageRating: averageRatingData.averageRating,
+                    numberOfRatings: averageRatingData.numberOfRatings
+                };
+            } else {
+                return {averageRating: 0, numberOfRatings: 0};
+            }
+        } catch (error) {
+            console.error('Error fetching average rating:', error);
+            return {averageRating: 0, numberOfRatings: 0};
+        }
+    };
 
     const delFromFavorites = async (loggedUserId, recipeId) => {
         redirectToLogin(loggedUserId);
@@ -127,7 +153,7 @@ export default function ViewRecipe() {
     };
 
     const redirectToLogin = (loggedUserId) => {
-        if (loggedUserId === '') {
+        if (!loggedUserId) {
             router.push('/auth/login');
         }
     };
@@ -145,7 +171,9 @@ export default function ViewRecipe() {
         };
 
         try {
-            const response = await fetch(process.env.NEXT_PUBLIC_RECIPES_URL + "/addWeekMenu", requestOptions);
+            await fetch(process.env.NEXT_PUBLIC_RECIPES_URL + "/addWeekMenu", requestOptions);
+        } catch (error) {
+            console.error('Error adding to week menu:', error);
         } finally {
             setShowDays(false);
         }
@@ -175,13 +203,14 @@ export default function ViewRecipe() {
             if (response.ok) {
                 toast.success('Rating submitted successfully!');
                 setUserRating(newRating);
-                const ratingData = await fetchUserRating(recId, loggedId);
-                setAverageRating(ratingData.averageRating);
+                const {averageRating} = await fetchAverageRating(recId);
+                setAverageRating(averageRating);
             } else {
                 toast.error('Failed to submit rating.');
             }
         } catch (error) {
             toast.error('An error occurred while submitting the rating.');
+            console.error('Error:', error);
         }
     };
 
@@ -190,56 +219,80 @@ export default function ViewRecipe() {
             try {
                 const requestOptions = {method: 'GET'};
                 const response = await fetch(`${process.env.NEXT_PUBLIC_RECIPES_URL}/get?id=${recId}`, requestOptions);
-                const responseData = await response.json();
-                setData(responseData);
+                if (response.ok) {
+                    const responseData = await response.json();
+                    setData(responseData);
+                } else {
+                    console.error('Failed to fetch recipe data');
+                }
+            } catch (error) {
+                console.error('Error fetching recipe data:', error);
             } finally {
                 setIsLoading(false);
             }
         };
 
         const getFavState = async () => {
-            const requestOptions = {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)
-                }
-            };
             if (!loggedId) return;
-            const res1 = await fetch(`${process.env.NEXT_PUBLIC_RECIPES_URL}/getFavs?id=${loggedId}`, requestOptions);
-            const favList = await res1.json();
-            if (Array.isArray(favList)) {
-                setOnFavorites(favList.some(item => item.recipeId === recId));
-            } else {
-                setOnFavorites(false);
+
+            try {
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': "Bearer " + getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)
+                    }
+                };
+                const res1 = await fetch(`${process.env.NEXT_PUBLIC_RECIPES_URL}/getFavs?id=${loggedId}`, requestOptions);
+                if (res1.ok) {
+                    const favList = await res1.json();
+                    setOnFavorites(Array.isArray(favList) && favList.some(item => item.recipeId === recId));
+                } else {
+                    console.error('Failed to fetch favorites state');
+                }
+            } catch (error) {
+                console.error('Error fetching favorites state:', error);
             }
         };
 
         const getUserRating = async () => {
-            if (loggedId) {
+            try {
                 const ratingData = await fetchUserRating(recId, loggedId);
-                setUserRating(ratingData.rating);
-                setAverageRating(ratingData.averageRating);
+                setUserRating(loggedId ? ratingData.rating : 0);
+            } catch (error) {
+                console.error('Error fetching user rating:', error);
+            }
+        };
+
+        const getAverageRating = async () => {
+            try {
+                const {averageRating, numberOfRatings} = await fetchAverageRating(recId);
+                setAverageRating(averageRating);
+                setNumberOfRatings(numberOfRatings);
+            } catch (error) {
+                console.error('Error fetching average rating:', error);
             }
         };
 
         if (hasCookie(process.env.NEXT_PUBLIC_JWT_COOKIE)) {
             const decoded = jwt.decode(getCookie(process.env.NEXT_PUBLIC_JWT_COOKIE));
             setLoggedId(decoded.id);
-        } else {
-            setOnFavorites(false);
         }
         fetchData();
         getFavState();
         getUserRating();
+        getAverageRating();
     }, [loggedId, recId]);
 
     useEffect(() => {
         if (loggedId) {
             const getUserRating = async () => {
-                const ratingData = await fetchUserRating(recId, loggedId);
-                setUserRating(ratingData.rating);
-                setAverageRating(ratingData.averageRating);
+                try {
+                    const ratingData = await fetchUserRating(recId, loggedId);
+                    setUserRating(ratingData.rating);
+                } catch (error) {
+                    console.error('Error fetching user rating:', error);
+                }
             };
             getUserRating();
         }
@@ -301,7 +354,7 @@ export default function ViewRecipe() {
                                         </div>
                                     </Row>
                                     <Row className="d-flex justify-content-center">
-                                        <div className="d-flex justify-content-center">
+                                        <div className="d-flex justify-content-center align-items-center">
                                             <ReactStars
                                                 count={5}
                                                 value={averageRating}
@@ -309,8 +362,18 @@ export default function ViewRecipe() {
                                                 size={24}
                                                 half={true}
                                             />
+                                            <span className="number-of-ratings">({numberOfRatings})</span>
                                         </div>
                                     </Row>
+
+                                    <style jsx>{`
+                                      .number-of-ratings {
+                                        display: flex;
+                                        align-items: center;
+                                        margin-left: 5px;
+                                      }
+                                    `}</style>
+
                                     <Row className="text-center">
                                         <hr/>
                                         <CardText><strong>{data.recipe.yield} {t("viewRecipe.portions")}</strong></CardText>

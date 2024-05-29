@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Col } from 'react-bootstrap';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList } from 'recharts';
+import { useTranslation } from "react-i18next";
 
 const TopPostsChart = ({ data }) => {
     const [topPosts, setTopPosts] = useState([]);
-
+    const { t } = useTranslation("global");
     useEffect(() => {
         // Ordenar los datos por número de comentarios (de mayor a menor)
         const sortedData = data.sort((a, b) => b.numberOfComments - a.numberOfComments);
@@ -15,7 +16,7 @@ const TopPostsChart = ({ data }) => {
 
     return (
         <Col>
-            <h4 style={{ textAlign: 'center' }}>Top 10 de posts (con el postId) con más comentarios</h4>
+            <h4 style={{ textAlign: 'center' }}>{t("adminOptions.topPostChartTitle")}</h4>
             <ResponsiveContainer width="100%" height={400}>
                 <BarChart
                     data={topPosts}
@@ -25,7 +26,7 @@ const TopPostsChart = ({ data }) => {
                     <XAxis dataKey="postId" />
                     <YAxis />
                     <Tooltip />
-                    <Legend />
+                    <Legend formatter={(value) => value === 'numberOfComments' ? t("adminOptions.numberOfComments") : value} />
                     <Bar dataKey="numberOfComments" fill="#8884d8">
                         <LabelList dataKey="numberOfComments" position="top" />
                     </Bar>

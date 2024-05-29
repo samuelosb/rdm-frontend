@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Col } from 'react-bootstrap';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList } from 'recharts';
+import { useTranslation } from "react-i18next";
+
+
 
 const TopUsuariosPorPublicaciones = ({ data }) => {
     const [topUsuarios, setTopUsuarios] = useState([]);
-
+    const { t } = useTranslation("global");
     useEffect(() => {
         // Ordenar los datos por número de publicaciones (de mayor a menor)
         const datosOrdenados = data.sort((a, b) => b.numberOfPosts - a.numberOfPosts);
@@ -15,7 +18,7 @@ const TopUsuariosPorPublicaciones = ({ data }) => {
 
     return (
         <Col>
-            <h4 style={{ textAlign: 'center' }}>Top 10 de usuarios (con userId) con más publicaciones</h4>
+            <h4 style={{ textAlign: 'center' }}>{t("adminOptions.topUserbyPostsChartTitle")}</h4>
             <ResponsiveContainer width="100%" height={400}>
                 <BarChart
                     data={topUsuarios}
@@ -25,7 +28,7 @@ const TopUsuariosPorPublicaciones = ({ data }) => {
                     <XAxis dataKey="userId" />
                     <YAxis />
                     <Tooltip />
-                    <Legend />
+                    <Legend formatter={(value) => value === 'numberOfPosts' ? t("adminOptions.numberOfPosts") : value} />
                     <Bar dataKey="numberOfPosts" fill="#8884d8">
                         <LabelList dataKey="numberOfPosts" position="top" />
                     </Bar>

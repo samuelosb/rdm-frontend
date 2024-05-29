@@ -8,7 +8,7 @@
 'use client';
 import React, {useState, useEffect} from 'react';
 import Container from 'react-bootstrap/Container';
-import {Placeholder, Card, Col, Row, Button} from 'react-bootstrap';
+import {Placeholder, Card, Col, Row} from 'react-bootstrap';
 import './home-view.css';
 import Link from 'next/link';
 import {useTranslation} from 'react-i18next';
@@ -21,7 +21,6 @@ export default function Home() {
     const [recipesData, setRecipesData] = useState([]);
     const [forumPostsData, setForumPostsData] = useState([]);
     const [mostCommentedPostsData, setMostCommentedPostsData] = useState([]);
-    const [isDynamicMode, setIsDynamicMode] = useState(false); // Toggle state for static/dynamic mode
     const [loadingRecipes, setLoadingRecipes] = useState(true);
     const [loadingForumPosts, setLoadingForumPosts] = useState(true);
     const [loadingMostCommentedPosts, setLoadingMostCommentedPosts] = useState(true);
@@ -102,7 +101,7 @@ export default function Home() {
             }
             const data = await response.json();
             setRandomRecipesData(data.hits);
-            console.log(data.hits)
+            // console.log(data.hits)
         } catch (error) {
             console.error('Error fetching random recipes:', error);
             setRandomRecipesData([]);
@@ -134,7 +133,7 @@ export default function Home() {
                 }
                 const data = await response.json();
                 setRecipesData(data);
-                console.log(data);
+                // console.log(data);
             } catch (error) {
                 console.error('Error fetching top-rated recipes:', error);
             } finally {
@@ -149,15 +148,12 @@ export default function Home() {
             deleteCookie('registrationSuccess');
         }
 
-        // Load data based on dynamic mode state
-        if (isDynamicMode) {
-            loadDynamicRecipesData();
-            loadRandomRecipesData(); // Load random recipes in dynamic mode
-        } else {
-        }
+        // Load dynamic data
+        loadDynamicRecipesData();
+        loadRandomRecipesData();
         loadForumPostsData();
         loadMostCommentedPostsData();
-    }, [isDynamicMode]);
+    }, []);
 
     return (
         <>
@@ -168,17 +164,12 @@ export default function Home() {
                     <Col>
                         <h2 className={"mb-0"}>{t("home.topR")}</h2>
                     </Col>
-                    <Col className="text-end">
-                        <Button className="btn btn-light" onClick={() => setIsDynamicMode(!isDynamicMode)}>
-                            {isDynamicMode ? 'Load Static Data' : 'Load Dynamic Data'}
-                        </Button>
-                    </Col>
                 </Row>
                 <Row className={"mb-4"}>
                     <div className="scrollable-row">
                         {loadingRecipes ? (
                             [...Array(4)].map((_, index) => (
-                                <Col key={index} xs={9} md={6} lg={3}>
+                                <Col key={index} xs={12} sm={6} md={4} lg={3}>
                                     <Card>
                                         <Placeholder as={Card.Img} variant="top" animation="wave"/>
                                         <Card.Body>
@@ -195,7 +186,7 @@ export default function Home() {
                             ))
                         ) : (
                             recipesData.map((recipe, index) => (
-                                <Col key={index} xs={9} md={6} lg={3}>
+                                <Col key={index} xs={12} sm={6} md={4} lg={3}>
                                     <Link href={`/viewRecipe?r=${encodeURIComponent(recipe.uri?.split('_')[1] || '')}`}>
                                         <Card>
                                             <Card.Img variant="top" src={recipe.image}/>
@@ -229,7 +220,7 @@ export default function Home() {
                     <div className="scrollable-row">
                         {loadingForumPosts ? (
                             [...Array(4)].map((_, index) => (
-                                <Col key={index} xs={9} md={6} lg={3}>
+                                <Col key={index} xs={12} sm={6} md={4} lg={3}>
                                     <Card>
                                         <Card.Body>
                                             <Placeholder as={Card.Title} animation="wave">
@@ -245,7 +236,7 @@ export default function Home() {
                             ))
                         ) : (
                             forumPostsData.map((post) => (
-                                <Col key={post._id} xs={9} md={6} lg={3}>
+                                <Col key={post._id} xs={12} sm={6} md={4} lg={3}>
                                     <a href={`forum/viewThread?thread=${post.postId}&page=1`}>
                                         <Card>
                                             <Card.Body>
@@ -270,7 +261,7 @@ export default function Home() {
                     <div className="scrollable-row">
                         {loadingRandomRecipes ? (
                             [...Array(4)].map((_, index) => (
-                                <Col key={index} xs={9} md={6} lg={3}>
+                                <Col key={index} xs={12} sm={6} md={4} lg={3}>
                                     <Card>
                                         <Placeholder as={Card.Img} variant="top" animation="wave"/>
                                         <Card.Body>
@@ -288,7 +279,7 @@ export default function Home() {
                         ) : (
                             randomRecipesData.map((recipe, index) => (
 
-                                <Col key={index} xs={9} md={6} lg={3}>
+                                <Col key={index} xs={12} sm={6} md={4} lg={3}>
                                     <Link
                                         href={`/viewRecipe?r=${encodeURIComponent(extractRecipeId(recipe._links.self.href))}`}>
                                         <Card>
@@ -326,7 +317,7 @@ export default function Home() {
                     <div className="scrollable-row">
                         {loadingMostCommentedPosts ? (
                             [...Array(4)].map((_, index) => (
-                                <Col key={index} xs={9} md={6} lg={3}>
+                                <Col key={index} xs={12} sm={6} md={4} lg={3}>
                                     <Card>
                                         <Card.Body>
                                             <Placeholder as={Card.Title} animation="wave">
@@ -342,7 +333,7 @@ export default function Home() {
                             ))
                         ) : (
                             mostCommentedPostsData.map((post) => (
-                                <Col key={post._id} xs={9} md={6} lg={3}>
+                                <Col key={post._id} xs={12} sm={6} md={4} lg={3}>
                                     <a href={`forum/viewThread?thread=${post.postId}&page=1`}>
                                         <Card>
                                             <Card.Body>

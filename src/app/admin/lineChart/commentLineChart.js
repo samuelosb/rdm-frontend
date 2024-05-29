@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Col } from 'react-bootstrap';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useTranslation } from "react-i18next";
 
 const CommentLineChart = ({ data }) => {
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
     const [yearsList, setYearsList] = useState([]);
     const [totalComments, setTotalComments] = useState(0);
-
+    const { t } = useTranslation("global");
     useEffect(() => {
         if (Array.isArray(data)) {
             const years = [...new Set(data.map(entry => new Date(entry.timePublication).getFullYear()))];
@@ -52,11 +53,29 @@ const CommentLineChart = ({ data }) => {
         setSelectedYear(parseInt(event.target.value));
     };
 
+    const getMonthName = (month) => {
+        const monthNames = [
+            t('dateLabels.Ene'),
+            t('dateLabels.Feb'),
+            t('dateLabels.Mar'),
+            t('dateLabels.Abr'),
+            t('dateLabels.May'),
+            t('dateLabels.Jun'),
+            t('dateLabels.Jul'),
+            t('dateLabels.Ago'),
+            t('dateLabels.Sep'),
+            t('dateLabels.Oct'),
+            t('dateLabels.Nov'),
+            t('dateLabels.Dic')
+        ];
+        return monthNames[month - 1]; // Months are zero-based
+    };
+
     return (
         <Col>
-            <h4 style={{ textAlign: 'center' }}>Número de comentarios por año</h4>
+            <h4 style={{ textAlign: 'center' }}>{t("adminOptions.commentLineChartTitle")}</h4>
             <div style={{ textAlign: 'center', marginBottom: '10px' }}>
-                {totalComments > 0 && <p>Número total de comentarios en el año {selectedYear}: {totalComments}</p>}
+                {totalComments > 0 && <p>{t("adminOptions.commentLineChartSubtitle")} {selectedYear}: {totalComments}</p>}
             </div>
             <select value={selectedYear} onChange={handleYearChange}>
                 <option value="">Seleccionar...</option>
@@ -64,8 +83,8 @@ const CommentLineChart = ({ data }) => {
                     <option key={year} value={year}>{year}</option>
                 ))}
             </select>
-            <ResponsiveContainer width={800} height={300}>
-                <LineChart data={monthsData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+            <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={monthsData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="month" tickFormatter={month => getMonthName(month)} />
                     <YAxis />
